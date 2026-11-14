@@ -1,0 +1,51 @@
+{
+  "flag": "SIGMOID_NEURON",
+  "reference_url": "https://data.insideairbnb.com/france/ile-de-france/paris/2026-09-16/data/listings.csv.gz",
+  "rows": 28108,
+  "exact_source_matches": 26163,
+  "artwork_rows": 1945,
+  "clusters": [
+    {
+      "cluster": 1,
+      "letter": "N",
+      "count": 297,
+      "mean_price": 102.08589225589226,
+      "mean_availability_365": 48.53198653198653
+    },
+    {
+      "cluster": 2,
+      "letter": "E",
+      "count": 304,
+      "mean_price": 134.0708552631579,
+      "mean_availability_365": 274.2006578947368
+    },
+    {
+      "cluster": 3,
+      "letter": "U",
+      "count": 337,
+      "mean_price": 185.54347181008902,
+      "mean_availability_365": 335.6379821958457
+    },
+    {
+      "cluster": 4,
+      "letter": "R",
+      "count": 315,
+      "mean_price": 252.03114285714284,
+      "mean_availability_365": 176.30793650793652
+    },
+    {
+      "cluster": 5,
+      "letter": "O",
+      "count": 355,
+      "mean_price": 334.3293521126761,
+      "mean_availability_365": 242.9887323943662
+    },
+    {
+      "cluster": 6,
+      "letter": "N",
+      "count": 337,
+      "mean_price": 483.25949554896147,
+      "mean_availability_365": 62.07121661721068
+    }
+  ]
+}
