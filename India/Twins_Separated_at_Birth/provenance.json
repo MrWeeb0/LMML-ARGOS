@@ -1,0 +1,11 @@
+{
+  "source": "supplied public Drive folder, extracted images",
+  "images": 4057,
+  "original_zip_available": false,
+  "stated_original_zip_sha256": "2e1a5df7bd6c87c581dfdd890ff6d74ebd24dad7a4072d333c4212c6f061316a",
+  "reconstructed_test_zip_sha256": "9528a1da251030b6d56b3fb93d6810208c9ade6863aa5c0d854c6cac4ec3f727",
+  "image_hash_inventory_sha256": "0e20b603d2a2499e90b4d961cbf0da880913035b74081b0f1264797ce945f706",
+  "participant_folder": "https://drive.google.com/drive/folders/1i9HpSq7yYWfLxN_7kEbSlqY66aYPiF6M",
+  "image_folder": "https://drive.google.com/drive/folders/1HPhMQWsPfF8xFocExnkcsHX0_mbaIpo5",
+  "original_zip_verified": false
+}

@@ -1,0 +1,17 @@
+{
+  "task": "Feather Stories",
+  "participant_folder": "https://drive.google.com/drive/folders/1R_cYNcO-t0MRR2ri6Nhgj1cSJ7zCiWBM",
+  "observations": {
+    "url": "https://drive.google.com/file/d/1xZ6iDwlN8cnm-DJVcQi5hs1SlMqk-JVb/view",
+    "bytes": 11212866,
+    "sha256": "6349db410983a430b7b74865a10a28cc9f6b38855098e1b9ec4eb49bf73545bb"
+  },
+  "register": {
+    "url": "https://drive.google.com/file/d/182-PGO0lZyrkCvQa6FXQZ_ibg0K1awLp/view",
+    "bytes": 13009,
+    "sha256": "9f8b59266700ab4000b8c3a4d3561fb0c1a0458bb91a7e1c94a093219afe93c8"
+  },
+  "method": "Geographic isolation from registered White Storks, followed by per-position consensus ignoring question marks",
+  "external_bird_records_used": false,
+  "platform_confirmation": false
+}

@@ -1,0 +1,504 @@
+{
+  "ring": "RHGLWQ",
+  "flag": "SIGMOID_RHGLWQ",
+  "observation_rows": 79968,
+  "register_rows": 289,
+  "registered_storks": 30,
+  "stork_readings": 320,
+  "stork_localities": 89,
+  "locality_id": "L5819951",
+  "district": "Cahul",
+  "candidate_readings": 24,
+  "checklists": 24,
+  "dates": 23,
+  "observers": 24,
+  "first_date": "2016-05-21",
+  "last_date": "2025-08-11",
+  "nearest_registered_stork_km": 74.33567671258444,
+  "next_locality_distance_km": 3.364012546524103,
+  "votes": [
+    {
+      "A": 2,
+      "K": 1,
+      "R": 19,
+      "X": 1
+    },
+    {
+      "H": 19,
+      "M": 2,
+      "N": 1
+    },
+    {
+      "G": 13,
+      "Z": 3
+    },
+    {
+      "E": 1,
+      "F": 2,
+      "L": 15,
+      "P": 1
+    },
+    {
+      "H": 1,
+      "M": 1,
+      "N": 2,
+      "W": 18
+    },
+    {
+      "C": 1,
+      "D": 1,
+      "Q": 17
+    }
+  ],
+  "ranked_localities": [
+    {
+      "locality_id": "L5819951",
+      "readings": 24,
+      "nearest_registered_stork_km": 74.33567671258444
+    },
+    {
+      "locality_id": "L28786279",
+      "readings": 1,
+      "nearest_registered_stork_km": 3.364012546524103
+    },
+    {
+      "locality_id": "L20302461",
+      "readings": 1,
+      "nearest_registered_stork_km": 3.3366218880642062
+    },
+    {
+      "locality_id": "L56596175",
+      "readings": 1,
+      "nearest_registered_stork_km": 2.8650240393935547
+    },
+    {
+      "locality_id": "L20625888",
+      "readings": 1,
+      "nearest_registered_stork_km": 2.120273314496481
+    },
+    {
+      "locality_id": "L24832790",
+      "readings": 1,
+      "nearest_registered_stork_km": 1.9971427426257553
+    },
+    {
+      "locality_id": "L4552938",
+      "readings": 2,
+      "nearest_registered_stork_km": 1.9608603752711962
+    },
+    {
+      "locality_id": "L35426635",
+      "readings": 1,
+      "nearest_registered_stork_km": 1.9580739308032322
+    },
+    {
+      "locality_id": "L18090580",
+      "readings": 1,
+      "nearest_registered_stork_km": 1.8823327725108596
+    },
+    {
+      "locality_id": "L22804255",
+      "readings": 1,
+      "nearest_registered_stork_km": 1.859323436066109
+    },
+    {
+      "locality_id": "L26913301",
+      "readings": 1,
+      "nearest_registered_stork_km": 1.8051683016978604
+    },
+    {
+      "locality_id": "L14609704",
+      "readings": 3,
+      "nearest_registered_stork_km": 1.749681681462801
+    },
+    {
+      "locality_id": "L15888086",
+      "readings": 1,
+      "nearest_registered_stork_km": 1.6998661752904656
+    },
+    {
+      "locality_id": "L3822911",
+      "readings": 4,
+      "nearest_registered_stork_km": 1.6965030852932281
+    },
+    {
+      "locality_id": "L4570281",
+      "readings": 1,
+      "nearest_registered_stork_km": 1.5989388036144496
+    },
+    {
+      "locality_id": "L4552991",
+      "readings": 1,
+      "nearest_registered_stork_km": 1.38667551640864
+    },
+    {
+      "locality_id": "L11997849",
+      "readings": 1,
+      "nearest_registered_stork_km": 1.3865839550145953
+    },
+    {
+      "locality_id": "L38546879",
+      "readings": 1,
+      "nearest_registered_stork_km": 1.2464585545849793
+    },
+    {
+      "locality_id": "L4964762",
+      "readings": 3,
+      "nearest_registered_stork_km": 1.2109066592793045
+    },
+    {
+      "locality_id": "L23908783",
+      "readings": 1,
+      "nearest_registered_stork_km": 1.2065866844866724
+    },
+    {
+      "locality_id": "L7934819",
+      "readings": 1,
+      "nearest_registered_stork_km": 1.196375041823871
+    },
+    {
+      "locality_id": "L19029631",
+      "readings": 1,
+      "nearest_registered_stork_km": 1.1102938499348085
+    },
+    {
+      "locality_id": "L14581274",
+      "readings": 5,
+      "nearest_registered_stork_km": 0.9722830549461281
+    },
+    {
+      "locality_id": "L6020254",
+      "readings": 1,
+      "nearest_registered_stork_km": 0.950382498763342
+    },
+    {
+      "locality_id": "L24845038",
+      "readings": 1,
+      "nearest_registered_stork_km": 0.9297485361457519
+    },
+    {
+      "locality_id": "L14123825",
+      "readings": 2,
+      "nearest_registered_stork_km": 0.9258192270315913
+    },
+    {
+      "locality_id": "L9313489",
+      "readings": 1,
+      "nearest_registered_stork_km": 0.8995679062913378
+    },
+    {
+      "locality_id": "L16898764",
+      "readings": 1,
+      "nearest_registered_stork_km": 0.8749049455707862
+    },
+    {
+      "locality_id": "L23030887",
+      "readings": 1,
+      "nearest_registered_stork_km": 0.8171045804700539
+    },
+    {
+      "locality_id": "L10041498",
+      "readings": 1,
+      "nearest_registered_stork_km": 0.7910223145041742
+    },
+    {
+      "locality_id": "L14382321",
+      "readings": 1,
+      "nearest_registered_stork_km": 0.7327486254697393
+    },
+    {
+      "locality_id": "L14894311",
+      "readings": 1,
+      "nearest_registered_stork_km": 0.7149365669641977
+    },
+    {
+      "locality_id": "L25467103",
+      "readings": 1,
+      "nearest_registered_stork_km": 0.6734553538361977
+    },
+    {
+      "locality_id": "L26455688",
+      "readings": 1,
+      "nearest_registered_stork_km": 0.6624603897269488
+    },
+    {
+      "locality_id": "L16011897",
+      "readings": 1,
+      "nearest_registered_stork_km": 0.6505900009936499
+    },
+    {
+      "locality_id": "L11216711",
+      "readings": 1,
+      "nearest_registered_stork_km": 0.6454227885531315
+    },
+    {
+      "locality_id": "L8351047",
+      "readings": 4,
+      "nearest_registered_stork_km": 0.6317485013427816
+    },
+    {
+      "locality_id": "L23088721",
+      "readings": 1,
+      "nearest_registered_stork_km": 0.6272513575593155
+    },
+    {
+      "locality_id": "L11416132",
+      "readings": 1,
+      "nearest_registered_stork_km": 0.5559891997126052
+    },
+    {
+      "locality_id": "L14557542",
+      "readings": 1,
+      "nearest_registered_stork_km": 0.5352874567040499
+    },
+    {
+      "locality_id": "L23452114",
+      "readings": 2,
+      "nearest_registered_stork_km": 0.5249604026763871
+    },
+    {
+      "locality_id": "L7715735",
+      "readings": 2,
+      "nearest_registered_stork_km": 0.5200588083140288
+    },
+    {
+      "locality_id": "L14943182",
+      "readings": 1,
+      "nearest_registered_stork_km": 0.46966512289999773
+    },
+    {
+      "locality_id": "L14441739",
+      "readings": 1,
+      "nearest_registered_stork_km": 0.4694582919680593
+    },
+    {
+      "locality_id": "L11897427",
+      "readings": 1,
+      "nearest_registered_stork_km": 0.460273323176902
+    },
+    {
+      "locality_id": "L11127956",
+      "readings": 2,
+      "nearest_registered_stork_km": 0.42657688175631103
+    },
+    {
+      "locality_id": "L11109818",
+      "readings": 1,
+      "nearest_registered_stork_km": 0.4090140806440533
+    },
+    {
+      "locality_id": "L11096765",
+      "readings": 2,
+      "nearest_registered_stork_km": 0.37417927706698173
+    },
+    {
+      "locality_id": "L7316201",
+      "readings": 1,
+      "nearest_registered_stork_km": 0.357612769882624
+    },
+    {
+      "locality_id": "L7512966",
+      "readings": 1,
+      "nearest_registered_stork_km": 0.3280944698097882
+    },
+    {
+      "locality_id": "L11953539",
+      "readings": 2,
+      "nearest_registered_stork_km": 0.3136810868083246
+    },
+    {
+      "locality_id": "L5770535",
+      "readings": 3,
+      "nearest_registered_stork_km": 0.2984136621755545
+    },
+    {
+      "locality_id": "L4597451",
+      "readings": 1,
+      "nearest_registered_stork_km": 0.28480010904343145
+    },
+    {
+      "locality_id": "L35256368",
+      "readings": 1,
+      "nearest_registered_stork_km": 0.2750091910469494
+    },
+    {
+      "locality_id": "L14188079",
+      "readings": 1,
+      "nearest_registered_stork_km": 0.25499505481578744
+    },
+    {
+      "locality_id": "L51118845",
+      "readings": 1,
+      "nearest_registered_stork_km": 0.22747734547990975
+    },
+    {
+      "locality_id": "L20697655",
+      "readings": 1,
+      "nearest_registered_stork_km": 0.20848968118220018
+    },
+    {
+      "locality_id": "L5924357",
+      "readings": 2,
+      "nearest_registered_stork_km": 0.20795288474192303
+    },
+    {
+      "locality_id": "L7161392",
+      "readings": 5,
+      "nearest_registered_stork_km": 0.18550846741120597
+    },
+    {
+      "locality_id": "L13104459",
+      "readings": 1,
+      "nearest_registered_stork_km": 0.1536573062703439
+    },
+    {
+      "locality_id": "L16658151",
+      "readings": 1,
+      "nearest_registered_stork_km": 0.09171085608187102
+    },
+    {
+      "locality_id": "L10088975",
+      "readings": 3,
+      "nearest_registered_stork_km": 0.0879569496383751
+    },
+    {
+      "locality_id": "L15964194",
+      "readings": 3,
+      "nearest_registered_stork_km": 0.07050122233041874
+    },
+    {
+      "locality_id": "L14171260",
+      "readings": 1,
+      "nearest_registered_stork_km": 0.05509275534129581
+    },
+    {
+      "locality_id": "L14367467",
+      "readings": 1,
+      "nearest_registered_stork_km": 0.015694618612164198
+    },
+    {
+      "locality_id": "L11023940",
+      "readings": 1,
+      "nearest_registered_stork_km": 0.013807243599876513
+    },
+    {
+      "locality_id": "L10829655",
+      "readings": 2,
+      "nearest_registered_stork_km": 0.007160200895558127
+    },
+    {
+      "locality_id": "L8150848",
+      "readings": 4,
+      "nearest_registered_stork_km": 0.006302905177796435
+    },
+    {
+      "locality_id": "L16225078",
+      "readings": 4,
+      "nearest_registered_stork_km": 0.0062521659049988056
+    },
+    {
+      "locality_id": "L21337431",
+      "readings": 1,
+      "nearest_registered_stork_km": 0.005571913964714105
+    },
+    {
+      "locality_id": "L11953488",
+      "readings": 3,
+      "nearest_registered_stork_km": 0.005270346600905512
+    },
+    {
+      "locality_id": "L7813658",
+      "readings": 9,
+      "nearest_registered_stork_km": 0.00523081938646965
+    },
+    {
+      "locality_id": "L4964769",
+      "readings": 14,
+      "nearest_registered_stork_km": 0.005161404554371885
+    },
+    {
+      "locality_id": "L14391462",
+      "readings": 3,
+      "nearest_registered_stork_km": 0.005039642005569327
+    },
+    {
+      "locality_id": "L8150953",
+      "readings": 6,
+      "nearest_registered_stork_km": 0.004910307035693788
+    },
+    {
+      "locality_id": "L16602511",
+      "readings": 5,
+      "nearest_registered_stork_km": 0.004744631837355866
+    },
+    {
+      "locality_id": "L14843179",
+      "readings": 7,
+      "nearest_registered_stork_km": 0.004075096048353799
+    },
+    {
+      "locality_id": "L5562838",
+      "readings": 24,
+      "nearest_registered_stork_km": 0.003910821932802889
+    },
+    {
+      "locality_id": "L14153389",
+      "readings": 21,
+      "nearest_registered_stork_km": 0.0035778675993036273
+    },
+    {
+      "locality_id": "L8126382",
+      "readings": 10,
+      "nearest_registered_stork_km": 0.0034944904772437036
+    },
+    {
+      "locality_id": "L4538017",
+      "readings": 4,
+      "nearest_registered_stork_km": 0.003421114970946942
+    },
+    {
+      "locality_id": "L7513445",
+      "readings": 15,
+      "nearest_registered_stork_km": 0.0033358477997949
+    },
+    {
+      "locality_id": "L15147045",
+      "readings": 10,
+      "nearest_registered_stork_km": 0.003246738030551809
+    },
+    {
+      "locality_id": "L20406515",
+      "readings": 3,
+      "nearest_registered_stork_km": 0.0031862150235144157
+    },
+    {
+      "locality_id": "L23584934",
+      "readings": 3,
+      "nearest_registered_stork_km": 0.0021141580834552923
+    },
+    {
+      "locality_id": "L15121953",
+      "readings": 3,
+      "nearest_registered_stork_km": 0.001903236948090267
+    },
+    {
+      "locality_id": "L4521004",
+      "readings": 5,
+      "nearest_registered_stork_km": 0.001843495239644326
+    },
+    {
+      "locality_id": "L9296984",
+      "readings": 3,
+      "nearest_registered_stork_km": 0.001139107257228756
+    },
+    {
+      "locality_id": "L10196035",
+      "readings": 40,
+      "nearest_registered_stork_km": 0.0
+    }
+  ],
+  "sha256": {
+    "observations.csv": "6349db410983a430b7b74865a10a28cc9f6b38855098e1b9ec4eb49bf73545bb",
+    "ring_register.csv": "9f8b59266700ab4000b8c3a4d3561fb0c1a0458bb91a7e1c94a093219afe93c8"
+  }
+}
