@@ -6,6 +6,7 @@ from lab.level import COIN_SITES
 
 observed=Path('captures');observed.mkdir(exist_ok=True)
 last_info={}
+episodes={}
 patched=set()
 
 def plain(value):
@@ -28,7 +29,13 @@ def install(env):
  original_info=cls.info
  def info(self,*args,**kwargs):
   result=original_info(self,*args,**kwargs)
-  last_info[id(self)]=plain(result)
+  key=id(self);data=plain(result)
+  if key not in episodes or data.get('steps',0)<=episodes[key]['steps']:episodes[key]={'steps':0,'collected':[],'events':[]}
+  episode=episodes[key];episode['steps']=data.get('steps',0)
+  if data.get('coins_taken'):
+   episode['collected'].extend(data['coins_taken'])
+   episode['events'].append({'step':data['steps'],'x':data.get('x'),'taken':data['coins_taken']})
+  last_info[key]=data
   return result
  cls.info=info
 
@@ -39,7 +46,7 @@ def record(self):
   env=champion.env
   install(env)
   info=last_info.get(id(env),{})
-  row={'generation':self.generation,'score':plain(champion.score),'info':info,'state':{name:plain(getattr(env,name)) for name in ['coins','coins_taken','coins_got','won','dead','x','y','max_x','steps'] if hasattr(env,name)}}
+  row={'generation':self.generation,'score':plain(champion.score),'info':info,'episode':episodes.get(id(env),{}),'state':{name:plain(getattr(env,name)) for name in ['coins','coins_taken','coins_got','won','dead','x','y','max_x','steps'] if hasattr(env,name)}}
   with observed.joinpath('behavior.jsonl').open('a') as stream:stream.write(json.dumps(row)+'\n')
   if champion.score>observed_score:
    observed_score=champion.score
