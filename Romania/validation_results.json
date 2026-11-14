@@ -1,0 +1,52 @@
+{
+  "validation": {
+    "method": "stratified holdout",
+    "seed": 42,
+    "training_records": 5625,
+    "validation_records": 1875
+  },
+  "models": {
+    "logistic_regression": 0.5973333333333334,
+    "rbf_svm": 0.6810666666666667,
+    "hist_gradient_boosting": 0.8778666666666667,
+    "catboost": 0.8837333333333334,
+    "routed_detector": 0.9482666666666667
+  },
+  "route_validation": {
+    "linear": {
+      "records": 459,
+      "accuracy": 0.9389978213507625
+    },
+    "parity_tree": {
+      "records": 926,
+      "accuracy": 0.9622030237580994
+    },
+    "quadratic": {
+      "records": 490,
+      "accuracy": 0.9306122448979591
+    }
+  },
+  "full_fit": {
+    "gate_threshold": -0.588249996304512,
+    "radial_channels": [
+      "c03",
+      "c09",
+      "c12",
+      "c14",
+      "c15",
+      "c19",
+      "c27",
+      "c28",
+      "c30",
+      "c36",
+      "c39",
+      "c40"
+    ],
+    "training_counts": {
+      "quadratic": 1900,
+      "linear": 1901,
+      "parity_tree": 3699
+    }
+  },
+  "evaluator_result": "SIGMOID_CONVOLUTION"
+}
