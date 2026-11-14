@@ -1,0 +1,88 @@
+name: Algeria fluency sweep
+on:
+  push:
+    branches: [algeria-fluency]
+    paths:
+      - '.github/workflows/algeria-fluency.yml'
+      - 'Algeria/rescale.py'
+      - 'Algeria/build_fluency_check.py'
+      - 'Algeria/select_fluency.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    strategy:
+      fail-fast: false
+      max-parallel: 7
+      matrix:
+        alpha: [14, 18, 21, 24, 27, 30, 32]
+    env:
+      ALPHA: ${{ matrix.alpha }}
+      HF_HUB_DOWNLOAD_TIMEOUT: '120'
+    defaults:
+      run:
+        working-directory: Algeria
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install official grader dependencies
+        run: |
+          pip install 'https://github.com/abetlen/llama-cpp-python/releases/download/v0.3.36/llama_cpp_python-0.3.36-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl' gguf==0.19.0 huggingface_hub safetensors
+          python evaluation_script.py --setup
+      - name: Evaluate original and rescaled adapters
+        run: |
+          python build_fluency_check.py
+          if [ "$ALPHA" = 32 ]; then
+            cp adapter.gguf candidate.gguf
+          else
+            python rescale.py adapter.gguf candidate.gguf --alpha "$ALPHA"
+          fi
+          for split in public fluency_check; do
+            result=0
+            python evaluation_script.py --data "$split" --model candidate.gguf --out "$split.json" || result=$?
+            if [ "$result" -gt 1 ] || [ ! -f "$split.json" ]; then
+              exit 2
+            fi
+          done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: fluency-${{ matrix.alpha }}
+          path: |
+            Algeria/candidate.gguf
+            Algeria/public.json
+            Algeria/fluency_check.json
+  select:
+    needs: evaluate
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    if: always() && !cancelled()
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: fluency-*
+          path: sweep
+      - name: Select a candidate
+        run: |
+          python Algeria/select_fluency.py sweep
+          cat Algeria/fluency_scores.json >> "$GITHUB_STEP_SUMMARY"
+          if [ -f Algeria/candidate.gguf ]; then
+            mv Algeria/candidate.gguf Algeria/adapter.gguf
+            sha256sum Algeria/adapter.gguf
+            git config user.name github-actions[bot]
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add Algeria/adapter.gguf Algeria/fluency_scores.json
+            git commit -m 'Stage fluency-tested Algeria adapter'
+            git push origin HEAD:algeria-fluency
+          fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: fluency-summary
+          path: Algeria/fluency_scores.json
