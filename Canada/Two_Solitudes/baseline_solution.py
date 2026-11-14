@@ -1,11 +1,4 @@
-"""
-It trains the same model that first_model.npz holds, saves it as model.npz and runs
-open_vault on it. This is the first model once more: whatever the vault gives it is NOT the flag.
-Take from this file how the pieces fit together, nothing more.
 
-Needs numpy and scikit-learn (see requirements.txt). Run it from the folder that holds
-corpus.csv, sealed_reports.npz, vault.npz, featurize.py and open_vault.py.
-"""
 import csv
 
 import numpy as np
