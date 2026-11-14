@@ -1,0 +1,81 @@
+{
+  "leave_one_reading_out": [
+    "RHGLWQ",
+    "RHGLWQ",
+    "RHGLWQ",
+    "RHGLWQ",
+    "RHGLWQ",
+    "RHGLWQ",
+    "RHGLWQ",
+    "RHGLWQ",
+    "RHGLWQ",
+    "RHGLWQ",
+    "RHGLWQ",
+    "RHGLWQ",
+    "RHGLWQ",
+    "RHGLWQ",
+    "RHGLWQ",
+    "RHGLWQ",
+    "RHGLWQ",
+    "RHGLWQ",
+    "RHGLWQ",
+    "RHGLWQ",
+    "RHGLWQ",
+    "RHGLWQ",
+    "RHGLWQ",
+    "RHGLWQ"
+  ],
+  "leave_one_year_out": {
+    "2016": "RHGLWQ",
+    "2017": "RHGLWQ",
+    "2018": "RHGLWQ",
+    "2019": "RHGLWQ",
+    "2020": "RHGLWQ",
+    "2021": "RHGLWQ",
+    "2022": "RHGLWQ",
+    "2024": "RHGLWQ",
+    "2025": "RHGLWQ"
+  },
+  "leave_one_observer_out": [
+    "RHGLWQ",
+    "RHGLWQ",
+    "RHGLWQ",
+    "RHGLWQ",
+    "RHGLWQ",
+    "RHGLWQ",
+    "RHGLWQ",
+    "RHGLWQ",
+    "RHGLWQ",
+    "RHGLWQ",
+    "RHGLWQ",
+    "RHGLWQ",
+    "RHGLWQ",
+    "RHGLWQ",
+    "RHGLWQ",
+    "RHGLWQ",
+    "RHGLWQ",
+    "RHGLWQ",
+    "RHGLWQ",
+    "RHGLWQ",
+    "RHGLWQ",
+    "RHGLWQ",
+    "RHGLWQ",
+    "RHGLWQ"
+  ],
+  "radius_localities": {
+    "5": [
+      "L5819951"
+    ],
+    "10": [
+      "L5819951"
+    ],
+    "20": [
+      "L5819951"
+    ],
+    "50": [
+      "L5819951"
+    ]
+  },
+  "row_order_invariant": true,
+  "ring_absent_from_entire_register": true
+}
