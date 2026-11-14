@@ -1,51 +1,46 @@
-import json,math,os,time,traceback
+import inspect,json,math,os,time,traceback
 from pathlib import Path
 import numpy as np
 from lab.evolution import Lab
 from lab.level import COIN_SITES
-from lab import fitness
 
 observed=Path('captures');observed.mkdir(exist_ok=True)
+last_info={}
+patched=set()
 
 def plain(value):
  if isinstance(value,(str,int,bool,type(None))):return value
  if isinstance(value,float):return value if math.isfinite(value) else str(value)
  if isinstance(value,dict):return {str(k):plain(v) for k,v in value.items()}
- if isinstance(value,(list,tuple,set)):return [plain(v) for v in value]
+ if isinstance(value,(list,tuple,set,frozenset)):return [plain(v) for v in value]
  if hasattr(value,'tolist'):return plain(value.tolist())
  return str(value)
 
-observed.joinpath('observer-installed.json').write_text(json.dumps({'coin_sites':plain(COIN_SITES)},indent=2))
+observed.joinpath('observer-installed.json').write_text(json.dumps({'coin_sites':plain(COIN_SITES),'methods':{name:str(inspect.signature(getattr(Lab,name))) for name in ['step','finish','begin']}},indent=2))
 original_finish=Lab.finish
 observed_score=-float('inf')
 accelerated=False
-probed=False
+
+def install(env):
+ cls=type(env)
+ if cls in patched:return
+ patched.add(cls)
+ original_info=cls.info
+ def info(self,*args,**kwargs):
+  result=original_info(self,*args,**kwargs)
+  last_info[id(self)]=plain(result)
+  return result
+ cls.info=info
 
 def record(self):
- global observed_score,probed
+ global observed_score
  try:
   champion=max(self.runners,key=lambda runner:runner.score)
   env=champion.env
-  info=env.info() if callable(env.info) else env.info
-  row={'generation':self.generation,'score':plain(champion.score),'info':plain(info),'state':{name:plain(getattr(env,name)) for name in ['coins','coins_taken','coins_got','won','dead','x','y','max_x','steps'] if hasattr(env,name)}}
+  install(env)
+  info=last_info.get(id(env),{})
+  row={'generation':self.generation,'score':plain(champion.score),'info':info,'state':{name:plain(getattr(env,name)) for name in ['coins','coins_taken','coins_got','won','dead','x','y','max_x','steps'] if hasattr(env,name)}}
   with observed.joinpath('behavior.jsonl').open('a') as stream:stream.write(json.dumps(row)+'\n')
-  if not probed:
-   probed=True
-   functions={name:value for name,value in vars(fitness).items() if callable(value) and not name.startswith('_')}
-   report={'info':plain(info),'functions':{name:str(getattr(value,'__code__',value)) for name,value in functions.items()}}
-   fn=getattr(env,'reward_fn',None)
-   if fn is None:
-    fn=next((functions[name] for name in ['reward','fitness','score'] if name in functions),None)
-   if fn is not None and isinstance(info,dict):
-    baseline=dict(info);baseline['coins_taken']=()
-    try:
-     base=float(fn(baseline));payoffs=[]
-     for site in COIN_SITES:
-      trial=dict(baseline);trial['coins_taken']=(site,)
-      payoffs.append(float(fn(trial))-base)
-     report['coin_payoffs']=payoffs
-    except Exception:report['probe_error']=traceback.format_exc()
-   observed.joinpath('preferences.json').write_text(json.dumps(report,indent=2))
   if champion.score>observed_score:
    observed_score=champion.score
    np.save(observed/'trained-winner.npy',champion.brain.genome())
