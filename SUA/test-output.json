@@ -1,0 +1,4 @@
+{
+  "tokenizer_id": "meta-llama/Meta-Llama-3-8B",
+  "decoded_message": "TEST_SAMPLE: Verification successful at the American AI Institute. Token IDs map to Llama 3 vocabulary! FLAG: SIGMOID_LIBERTY"
+}
