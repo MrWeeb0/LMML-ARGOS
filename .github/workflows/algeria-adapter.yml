@@ -39,7 +39,13 @@ jobs:
           wait "$llama_pid"
           pip install /tmp/llama-wheels/llama_cpp_python*.whl
       - name: Train and evaluate
-        run: python train.py
+        run: |
+          python train.py
+          mv adapter.gguf checkpoints/initial.gguf
+          python rescale.py checkpoints/initial.gguf adapter.gguf --alpha 24
+          python evaluation_script.py --data public --model adapter.gguf --out evaluation.json
+          python build_fluency_check.py
+          python evaluation_script.py --data fluency_check --model adapter.gguf --out checkpoints/fluency-evaluation.json
       - name: Retain evaluations and candidates
         if: always()
         uses: actions/upload-artifact@v4
@@ -49,7 +55,7 @@ jobs:
             Algeria/adapter.gguf
             Algeria/evaluation.json
             Algeria/checkpoints/*.gguf
-            Algeria/checkpoints/evaluation-*.json
+            Algeria/checkpoints/*evaluation*.json
           if-no-files-found: warn
       - name: Commit passing adapter
         if: success() && github.ref == 'refs/heads/main'
