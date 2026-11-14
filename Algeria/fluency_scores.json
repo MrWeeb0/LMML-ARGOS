@@ -1,0 +1,132 @@
+{
+  "original_alpha": 32,
+  "candidate_alpha": 24,
+  "scores": {
+    "14": {
+      "public": {
+        "passed": false,
+        "style": 0.0,
+        "entity_class": 0.09091,
+        "content": 0.9661,
+        "logprob": -0.91287,
+        "calls": 0.25
+      },
+      "fluency_check": {
+        "passed": false,
+        "style": 0.0,
+        "entity_class": 0.17241,
+        "content": 0.82222,
+        "logprob": -0.86976,
+        "calls": 0.16667
+      }
+    },
+    "18": {
+      "public": {
+        "passed": false,
+        "style": 0.03797,
+        "entity_class": 0.48837,
+        "content": 0.91525,
+        "logprob": -0.9464,
+        "calls": 0.625
+      },
+      "fluency_check": {
+        "passed": false,
+        "style": 0.05479,
+        "entity_class": 0.48148,
+        "content": 0.82222,
+        "logprob": -1.0189,
+        "calls": 0.5
+      }
+    },
+    "21": {
+      "public": {
+        "passed": true,
+        "style": 0.2827,
+        "entity_class": 0.78049,
+        "content": 0.83051,
+        "logprob": -1.23763,
+        "calls": 0.75
+      },
+      "fluency_check": {
+        "passed": false,
+        "style": 0.17808,
+        "entity_class": 0.73913,
+        "content": 0.68889,
+        "logprob": -1.28052,
+        "calls": 0.66667
+      }
+    },
+    "24": {
+      "public": {
+        "passed": true,
+        "style": 0.41772,
+        "entity_class": 1.0,
+        "content": 0.81356,
+        "logprob": -1.52319,
+        "calls": 0.875
+      },
+      "fluency_check": {
+        "passed": true,
+        "style": 0.28767,
+        "entity_class": 0.95455,
+        "content": 0.66667,
+        "logprob": -1.31513,
+        "calls": 0.75
+      }
+    },
+    "27": {
+      "public": {
+        "passed": true,
+        "style": 0.58228,
+        "entity_class": 1.0,
+        "content": 0.81356,
+        "logprob": -1.72042,
+        "calls": 0.875
+      },
+      "fluency_check": {
+        "passed": true,
+        "style": 0.38356,
+        "entity_class": 0.95,
+        "content": 0.62222,
+        "logprob": -1.69547,
+        "calls": 0.91667
+      }
+    },
+    "30": {
+      "public": {
+        "passed": true,
+        "style": 0.67722,
+        "entity_class": 0.97436,
+        "content": 0.83051,
+        "logprob": -1.94421,
+        "calls": 0.875
+      },
+      "fluency_check": {
+        "passed": true,
+        "style": 0.44292,
+        "entity_class": 0.95238,
+        "content": 0.57778,
+        "logprob": -2.16705,
+        "calls": 0.91667
+      }
+    },
+    "32": {
+      "public": {
+        "passed": true,
+        "style": 0.72152,
+        "entity_class": 1.0,
+        "content": 0.81356,
+        "logprob": -2.0948,
+        "calls": 0.875
+      },
+      "fluency_check": {
+        "passed": true,
+        "style": 0.52511,
+        "entity_class": 0.95238,
+        "content": 0.57778,
+        "logprob": -2.2425,
+        "calls": 1.0
+      }
+    }
+  }
+}
