@@ -1,0 +1,69 @@
+name: Algeria adapter
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'Algeria/**'
+      - '.github/workflows/algeria-adapter.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: algeria-adapter
+  cancel-in-progress: false
+jobs:
+  train:
+    if: github.event_name == 'workflow_dispatch' || github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 115
+    defaults:
+      run:
+        working-directory: Algeria
+    env:
+      PYTHONUNBUFFERED: '1'
+      TOKENIZERS_PARALLELISM: 'false'
+      HF_HUB_DOWNLOAD_TIMEOUT: '120'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies and download models
+        run: |
+          CMAKE_BUILD_PARALLEL_LEVEL=4 pip wheel --no-deps llama-cpp-python==0.3.36 -w /tmp/llama-wheels &
+          llama_pid=$!
+          pip install torch==2.14.1 --index-url https://download.pytorch.org/whl/cpu || pip install torch==2.14.1
+          pip install transformers==5.20.2 peft==0.21.3 gguf==0.19.0 huggingface_hub safetensors
+          python evaluation_script.py --setup
+          python -c 'from huggingface_hub import snapshot_download; snapshot_download("HuggingFaceTB/SmolLM2-360M-Instruct", allow_patterns=["*.json", "*.jinja", "model.safetensors"])'
+          wait "$llama_pid"
+          pip install /tmp/llama-wheels/llama_cpp_python*.whl
+      - name: Train and evaluate
+        run: python train.py
+      - name: Retain evaluations and candidates
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: algeria-evaluation
+          path: |
+            Algeria/adapter.gguf
+            Algeria/evaluation.json
+            Algeria/checkpoints/*.gguf
+            Algeria/checkpoints/evaluation-*.json
+          if-no-files-found: warn
+      - name: Commit passing adapter
+        if: success() && github.ref == 'refs/heads/main'
+        run: |
+          test -f adapter.gguf
+          test -f evaluation.json
+          sha256sum adapter.gguf
+          git fetch origin main
+          git diff --exit-code HEAD origin/main -- .
+          git switch -C main origin/main
+          git config user.name github-actions[bot]
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add adapter.gguf
+          if ! git diff --cached --quiet; then
+            git commit -m 'Add validated Algeria LoRA adapter'
+            git push origin HEAD:main
+          fi

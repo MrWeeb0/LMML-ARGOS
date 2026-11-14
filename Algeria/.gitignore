@@ -1,0 +1,6 @@
+__pycache__/
+models/
+checkpoints/
+training.jsonl
+evaluation.json
+.venv/
