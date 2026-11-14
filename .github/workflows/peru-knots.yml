@@ -1,0 +1,22 @@
+name: Peru Knots Audit
+on:
+  push:
+    paths:
+      - Peru/The_Knots_You_Cannot_Read/**
+      - .github/workflows/peru-knots.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -r Peru/The_Knots_You_Cannot_Read/requirements.txt
+      - run: python Peru/The_Knots_You_Cannot_Read/main.py
+      - run: python Peru/The_Knots_You_Cannot_Read/audit.py

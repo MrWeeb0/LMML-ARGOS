@@ -22,6 +22,9 @@ def start():
  binary.chmod(0o755)
  with open(out/'display.log','w') as log:display=subprocess.Popen(['Xvfb',':99','-screen','0','1920x1080x24','-nolisten','tcp'],stdout=log,stderr=log,start_new_session=True)
  time.sleep(2)
+ if (root/'observe.so').exists():
+  os.environ['LD_PRELOAD']=str(root/'observe.so')
+  os.environ['MARATHON_OBSERVER']=str(root/'observe.py')
  with open(out/'application.log','w') as log:app=subprocess.Popen([str(binary)],cwd=root,stdout=log,stderr=log,start_new_session=True)
  state={'pid':app.pid,'display_pid':display.pid,'started':time.time(),'sha256':digest}
  (out/'run.json').write_text(json.dumps(state,indent=2))
@@ -39,4 +42,18 @@ def watch(seconds):
 
 if __name__=='__main__':
  if sys.argv[1]=='start':start()
- else:watch(int(sys.argv[2]))
+ elif sys.argv[1]=='probe':
+  start()
+  for name in ['observer-installed.json','preferences.json','behavior.jsonl','observer-error.log','application.log']:
+   path=out/name
+   if path.exists():print(name+'\n'+path.read_text()[:12000],flush=True)
+ else:
+  watch(int(sys.argv[2]))
+  for name in ['observer-installed.json','preferences.json','observer-error.log']:
+   path=out/name
+   if path.exists():print(name+'\n'+path.read_text(),flush=True)
+  path=out/'behavior.jsonl'
+  if path.exists():
+   rows=path.read_text().splitlines()
+   print('BEHAVIOR_RECORDS '+str(len(rows)),flush=True)
+   for row in rows[-100:]:print('BEHAVIOR '+row,flush=True)

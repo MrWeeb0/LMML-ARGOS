@@ -1,0 +1,68 @@
+{
+  "flag": "SIGMOID_TANH",
+  "word": "TANH",
+  "encoding": {
+    "site_order": "left_to_right",
+    "collected": 1,
+    "not_collected": 0,
+    "bits_per_letter": 5,
+    "alphabet": "A=1,...,Z=26"
+  },
+  "bits": "10100000010111001000",
+  "groups": [
+    "10100",
+    "00001",
+    "01110",
+    "01000"
+  ],
+  "values": [
+    20,
+    1,
+    14,
+    8
+  ],
+  "collected_sites": [
+    7,
+    17,
+    80,
+    101,
+    110,
+    118,
+    172
+  ],
+  "uncollected_sites": [
+    12,
+    25,
+    32,
+    43,
+    61,
+    66,
+    73,
+    93,
+    130,
+    157,
+    195,
+    201,
+    206
+  ],
+  "validation": {
+    "preserved_winning_episodes": 100,
+    "first_generation": 351,
+    "last_generation": 450,
+    "distinct_patterns": 1,
+    "score": 514.2070000000051,
+    "steps": 1197,
+    "reported_coin_count": 10,
+    "coded_pickups": 7
+  },
+  "provenance": {
+    "linux_sha256": "569dd52d9a4ff551798caff32c7eb3a1f5e462e14225d93f55a42dff25f2eca4",
+    "training_commit": "6edcb918c041e077cbf0b597adb0e51a65efb098",
+    "workflow_run": "https://github.com/MrWeeb0/LMML-ARGOS/actions/runs/43615347953",
+    "job_id": 132509061977,
+    "training_artifact_id": 14122601388,
+    "total_generation_records_in_artifact": 451,
+    "preserved_records": "last 100 BEHAVIOR lines from training job log"
+  },
+  "platform_acceptance_observed": false
+}

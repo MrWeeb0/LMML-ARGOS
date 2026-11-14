@@ -1,0 +1,19 @@
+{
+  "flag": "SIGMOID_77",
+  "rows": 1971,
+  "identity_groups": 900,
+  "groups_with_repeated_rows": 540,
+  "reported_accuracy": 0.9341772151898734,
+  "scaler_fitted_on_training_only": 0.9367088607594937,
+  "stratified_row_split": 0.9392405063291139,
+  "row_leave_one_out": 0.9594114662607813,
+  "corrected_leave_one_identity_out": 0.7666159309994927,
+  "corrected_predictions": 1511,
+  "corrected_total": 1971,
+  "group_holdout_accuracy": 0.8020833333333334,
+  "group_holdout_test_rows": 384,
+  "original_test_rows": 395,
+  "original_test_rows_with_identity_in_training": 308,
+  "original_overlap_accuracy": 1.0,
+  "original_unseen_identity_accuracy": 0.7126436781609196
+}
