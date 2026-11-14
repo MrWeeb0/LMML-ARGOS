@@ -1,0 +1,7 @@
+group,treatment,successes,plots,success_rate
+Overall,control,447,1653,0.27041742286751363
+Overall,treatment,585,1890,0.30952380952380953
+<= 104 km,control,312,1233,0.25304136253041365
+<= 104 km,treatment,36,144,0.25
+> 104 km,control,135,420,0.32142857142857145
+> 104 km,treatment,549,1746,0.31443298969072164

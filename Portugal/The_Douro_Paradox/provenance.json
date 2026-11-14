@@ -1,0 +1,11 @@
+{
+  "task": "The Douro Paradox",
+  "participant_folder": "https://drive.google.com/drive/folders/1NEtS0uwNpa_1iI0nZkXToIvLrk7CaKoD",
+  "dataset_url": "https://drive.google.com/file/d/1L8BmLUtVP-Amp7ysujx1alTYtTRiFkeM/view",
+  "filename": "douro_vineyard_data.csv",
+  "bytes": 505247,
+  "sha256": "8c72d48fa0c17835269aca101e1ad1e997436e0c0fa25091518a1d8eda3dabc5",
+  "rows": 3543,
+  "external_records_used": false,
+  "platform_confirmation": false
+}

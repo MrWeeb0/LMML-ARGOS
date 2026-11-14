@@ -1,0 +1,37 @@
+{
+  "passed": true,
+  "rows": 3543,
+  "complete_partition": true,
+  "exact_rates": {
+    "Overall": {
+      "control": {
+        "fraction": "149/551",
+        "percent": 27.041742286751365
+      },
+      "treatment": {
+        "fraction": "13/42",
+        "percent": 30.952380952380953
+      }
+    },
+    "<= 104 km": {
+      "control": {
+        "fraction": "104/411",
+        "percent": 25.304136253041364
+      },
+      "treatment": {
+        "fraction": "1/4",
+        "percent": 25.0
+      }
+    },
+    "> 104 km": {
+      "control": {
+        "fraction": "9/28",
+        "percent": 32.142857142857146
+      },
+      "treatment": {
+        "fraction": "61/194",
+        "percent": 31.443298969072163
+      }
+    }
+  }
+}
