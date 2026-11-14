@@ -1,0 +1,44 @@
+name: Two Solitudes reproduction
+on:
+  push:
+    paths:
+      - 'Canada/Two_Solitudes/**'
+      - '.github/workflows/two-solitudes.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: Canada/Two_Solitudes
+    env:
+      OPENBLAS_NUM_THREADS: '2'
+      OMP_NUM_THREADS: '2'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r requirements.txt scipy==1.15.3 joblib==1.5.2 threadpoolctl==3.8.0
+      - run: python -m py_compile train.py regularized.py verify.py
+      - run: python train.py
+      - run: python regularized.py
+      - run: python verify.py
+      - run: |
+          python - <<'PY'
+          import json
+          r=json.load(open('verification.json'))
+          assert r['local_vault_words']['model.npz']==['SNOWFLAKE']
+          assert r['local_vault_words']['regularized_model.npz']==['SNOWDRIFT']
+          assert r['local_vault_words']['first_model.npz']==['SNOWBLIND']
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: two-solitudes-models
+          path: |
+            Canada/Two_Solitudes/model.npz
+            Canada/Two_Solitudes/regularized_model.npz
+            Canada/Two_Solitudes/verification.json

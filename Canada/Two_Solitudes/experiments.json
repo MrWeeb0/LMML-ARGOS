@@ -1,0 +1,115 @@
+{
+  "status": "platform_unverified",
+  "platform_rejected_submission": "SIGMOID_SNOWDRIFT",
+  "current_candidate": "SIGMOID_SNOWFLAKE",
+  "provenance": "Recorded observations from the earlier Windows local runs. This file records prior experiments. Repository CI separately retrains and verifies the published standalone entry points.",
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.2.6",
+    "scikit_learn": "1.7.2",
+    "scipy": "1.15.3",
+    "joblib": "1.5.2",
+    "threadpoolctl": "3.8.0"
+  },
+  "synthetic_training_rows": 9462,
+  "synthetic_sentence_rows": 15898,
+  "sealed_report_rows": 1369,
+  "sealed_outputs": 5,
+  "local_vault_words": {
+    "first_model.npz": [
+      "SNOWBLIND"
+    ],
+    "regularized_model.npz": [
+      "SNOWDRIFT"
+    ],
+    "model.npz": [
+      "SNOWFLAKE"
+    ]
+  },
+  "synthetic_holdout": {
+    "rows": 1893,
+    "split": "stratified 80/20",
+    "random_state": 42,
+    "results": [
+      {
+        "C": 0.01,
+        "accuracy": 0.7960908610670893
+      },
+      {
+        "C": 0.1,
+        "accuracy": 0.9112519809825673
+      },
+      {
+        "C": 1,
+        "accuracy": 0.9498151082937136
+      },
+      {
+        "C": 10,
+        "accuracy": 0.9561542525092446
+      },
+      {
+        "C": 100,
+        "accuracy": 0.9566825145272055
+      }
+    ]
+  },
+  "sentence_experiments": [
+    {
+      "selection": "agree",
+      "C": 0.1,
+      "words": []
+    },
+    {
+      "selection": "agree",
+      "C": 1,
+      "words": []
+    },
+    {
+      "selection": "agree",
+      "C": 10,
+      "words": []
+    },
+    {
+      "selection": "relabel",
+      "C": 0.1,
+      "words": []
+    },
+    {
+      "selection": "relabel",
+      "C": 1,
+      "words": []
+    },
+    {
+      "selection": "relabel",
+      "C": 10,
+      "words": [
+        "SNOWFLAKE"
+      ]
+    },
+    {
+      "selection": "mixed",
+      "C": 0.1,
+      "words": []
+    },
+    {
+      "selection": "mixed",
+      "C": 1,
+      "words": []
+    },
+    {
+      "selection": "mixed",
+      "C": 10,
+      "words": []
+    }
+  ],
+  "original_sha256": {
+    "corpus.csv": "bbdbaeb9131ff92e7f24a083febab7e36fcbe7928c9eb3f52454ae95a8798097",
+    "first_model.npz": "44fd54b2c63d395124fcf47c92f406533505642e39d941f9b5abf3b16f3cf895",
+    "featurize.py": "d5dd276eb831cae3cfdf83135f69a743304cc0888bb139512ffa5ee614dd7853",
+    "sealed_reports.npz": "1e80668288600dc408f513b726971cc1380d3663c3ea9d685d728c76f2fe2a82",
+    "vault.npz": "b7f49f16f2a9deefd136fdcf8ade611e447ebb33507d34100a7a6284970b129b",
+    "open_vault.py": "f4e1c0e0fdbafae80389f51df5dc3173baf8fd9be3977c45a618dba3feef32ab",
+    "baseline_solution.py": "2bf1c72701cef52c536876722e3c82bf8a76490ebdbe1fd0eff8de80dd0af5f7",
+    "requirements.txt": "00219b6519e22db3cf54d42a24ee307341bd0b305b18cdef6f93f19a03f69d07"
+  }
+}
