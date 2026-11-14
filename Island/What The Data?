@@ -1,0 +1,87 @@
+import csv
+import io
+from collections import Counter
+from decimal import Decimal, InvalidOperation, ROUND_HALF_UP
+
+INPUT_FILE = "test-input.csv"
+OUTPUT_FILE = "test-output.csv"
+
+ONE_DECIMAL = Decimal("0.1")
+
+
+def fix_mojibake(name):
+    """Reverse a single Latin-1 mis-decode of UTF-8 bytes, if there was one."""
+    try:
+        fixed = name.encode("latin-1").decode("utf-8")
+    except (UnicodeEncodeError, UnicodeDecodeError):
+        return name
+    return fixed
+
+
+def find_header_index(lines):
+    for i, line in enumerate(lines):
+        if line.strip().lower().startswith("reading_id"):
+            return i
+    raise ValueError("header row (starting with 'reading_id') not found")
+
+
+def to_celsius(value, unit):
+    if unit == "F":
+        return (value - Decimal(32)) * Decimal(5) / Decimal(9)
+    return value
+
+
+def main():
+    with open(INPUT_FILE, "r", encoding="utf-8", newline="") as f:
+        lines = f.readlines()
+
+    header_idx = find_header_index(lines)
+    data_text = "".join(lines[header_idx:])
+    reader = csv.DictReader(io.StringIO(data_text), delimiter=";")
+
+    groups = {}  # reading_id -> list of (station_name, temperature_c, date)
+    for row in reader:
+        rid_raw = (row.get("reading_id") or "").strip()
+        if not rid_raw:
+            continue
+        try:
+            rid = int(rid_raw)
+        except ValueError:
+            continue
+
+        station_raw = (row.get("station_name") or "").strip()
+        unit = (row.get("unit") or "").strip().upper()
+        date = (row.get("reading_date") or "").strip()
+        temp_raw = (row.get("temperature_raw") or "").strip().replace(",", ".")
+
+        if not station_raw or not date or not temp_raw:
+            continue
+        try:
+            temp = Decimal(temp_raw)
+        except InvalidOperation:
+            continue
+
+        station = fix_mojibake(station_raw)
+        temp_c = to_celsius(temp, unit).quantize(ONE_DECIMAL, rounding=ROUND_HALF_UP)
+
+        groups.setdefault(rid, []).append((station, temp_c, date))
+
+    out_rows = []
+    for rid in sorted(groups):
+        entries = groups[rid]
+        vote = Counter((temp_c, date) for _, temp_c, date in entries)
+        (best_temp_c, best_date), _ = vote.most_common(1)[0]
+        station = next(
+            s for s, t, d in entries if t == best_temp_c and d == best_date
+        )
+        out_rows.append((rid, station, best_temp_c, best_date))
+
+    with open(OUTPUT_FILE, "w", encoding="utf-8", newline="") as f:
+        writer = csv.writer(f, lineterminator="\n")
+        writer.writerow(["reading_id", "station_name", "temperature_c", "reading_date"])
+        for rid, station, temp_c, date in out_rows:
+            writer.writerow([rid, station, str(temp_c), date])
+
+
+if __name__ == "__main__":
+    main()
