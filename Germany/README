@@ -1,0 +1,17 @@
+Procedura identifică structura unei funcții deterministe cu cinci intrări, folosind cel mult 150 de interogări. Soluția separă efectele netede, o interacțiune de tip produs și un salt pe o suprafață plană; apoi prezice valorile pentru punctele primite de evaluator.
+De ce nu ajunge variația unei singure intrări
+O interacțiune de forma (x3 − 0,5)(x5 − 0,5) dispare dacă oricare dintre cele două intrări rămâne la 0,5. Experimentele pe câte o singură axă pot astfel sugera un model aditiv greșit. Soluția folosește combinații ale tuturor celor cinci intrări.
+Identificarea părții netede
+Un experiment factorial local folosește cele 32 de combinații dintre nivelurile 0,375 și 0,625. Regresia pe o constantă, cinci termeni liniari și cele zece produse perechi estimează coeficienții. Un al doilea experiment cu 32 de colțuri ale cubului evidențiază schimbarea de regim. Dacă saltul traversează experimentul local, se folosește o ajustare prin consens pentru familia cu un singur produs.
+Identificarea discontinuității
+După scăderea modelului neted, reziduurile formează două niveluri. Muchiile cubului pe care nivelul se schimbă indică variabilele porții. Bisecțiile localizează puncte ale frontierei; descompunerea SVD estimează normala planului și pragul. Orientarea este aleasă astfel încât saltul raportat să fie pozitiv.
+Predicțiile și bugetul
+Zece probe suplimentare verifică modelul. Coeficienții sunt reajustați folosind punctele suficient de departe de frontieră. solve(oracle, points) întoarce variabilele relevante, interacțiunea, discontinuitatea, expresia și predicțiile. Toate citirile trec prin oracol și sunt contabilizate de acesta.
+
+Rezultate și utilizare
+Evaluare de practică: 100,0/100; pragul challengeului este 70/100.
+130/150 interogări; eroarea absolută maximă raportată este 0,000001.
+Variabile relevante: x1, x3, x4, x5; variabilă inertă: x2.
+Interacțiune recuperată: coeficient −4 pentru (x3 − 0,5)(x5 − 0,5).
+Frontieră recuperată: x1 + x4 ≥ 1,7; salt: +1,5.
+
