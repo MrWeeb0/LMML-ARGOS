@@ -1,0 +1,152 @@
+{
+  "flag": "SIGMOID_DISTANCE_FROM_PORTO_KM",
+  "column": "distance_from_porto_km",
+  "threshold": 104.0,
+  "rows": 3543,
+  "sha256": "8c72d48fa0c17835269aca101e1ad1e997436e0c0fa25091518a1d8eda3dabc5",
+  "overall": {
+    "control": {
+      "successes": 447,
+      "plots": 1653,
+      "rate": 0.27041742286751363
+    },
+    "treatment": {
+      "successes": 585,
+      "plots": 1890,
+      "rate": 0.30952380952380953
+    }
+  },
+  "groups": {
+    "<= 104 km": {
+      "control": {
+        "successes": 312,
+        "plots": 1233,
+        "rate": 0.25304136253041365
+      },
+      "treatment": {
+        "successes": 36,
+        "plots": 144,
+        "rate": 0.25
+      }
+    },
+    "> 104 km": {
+      "control": {
+        "successes": 135,
+        "plots": 420,
+        "rate": 0.32142857142857145
+      },
+      "treatment": {
+        "successes": 549,
+        "plots": 1746,
+        "rate": 0.31443298969072164
+      }
+    }
+  },
+  "screening": [
+    {
+      "column": "soil_depth_cm",
+      "kind": "numeric",
+      "levels": 82,
+      "reversing_thresholds": [],
+      "complete_reversal": false
+    },
+    {
+      "column": "trellis_system",
+      "kind": "categorical",
+      "levels": 3,
+      "complete_reversal": false
+    },
+    {
+      "column": "vineyard_age_group",
+      "kind": "categorical",
+      "levels": 3,
+      "complete_reversal": false
+    },
+    {
+      "column": "sun_hours_july",
+      "kind": "numeric",
+      "levels": 144,
+      "reversing_thresholds": [],
+      "complete_reversal": false
+    },
+    {
+      "column": "vine_density_per_ha",
+      "kind": "numeric",
+      "levels": 1823,
+      "reversing_thresholds": [],
+      "complete_reversal": false
+    },
+    {
+      "column": "cooperative",
+      "kind": "categorical",
+      "levels": 12,
+      "complete_reversal": false
+    },
+    {
+      "column": "annual_rainfall_mm",
+      "kind": "numeric",
+      "levels": 577,
+      "reversing_thresholds": [],
+      "complete_reversal": false
+    },
+    {
+      "column": "grape_variety",
+      "kind": "categorical",
+      "levels": 3,
+      "complete_reversal": false
+    },
+    {
+      "column": "distance_from_porto_km",
+      "kind": "numeric",
+      "levels": 1167,
+      "reversing_thresholds": [
+        102.9,
+        103.0,
+        103.1,
+        103.2,
+        103.3,
+        103.4,
+        103.6,
+        103.7,
+        103.8,
+        103.9,
+        104.0
+      ],
+      "complete_reversal": true
+    },
+    {
+      "column": "organic_certified",
+      "kind": "categorical",
+      "levels": 2,
+      "complete_reversal": false
+    },
+    {
+      "column": "elevation_m",
+      "kind": "numeric",
+      "levels": 1949,
+      "reversing_thresholds": [],
+      "complete_reversal": false
+    },
+    {
+      "column": "soil_ph",
+      "kind": "numeric",
+      "levels": 199,
+      "reversing_thresholds": [],
+      "complete_reversal": false
+    },
+    {
+      "column": "harvest_month",
+      "kind": "categorical",
+      "levels": 2,
+      "complete_reversal": false
+    },
+    {
+      "column": "slope_aspect",
+      "kind": "categorical",
+      "levels": 4,
+      "complete_reversal": false
+    }
+  ],
+  "threshold_selection": "largest observed numeric boundary producing a strict reversal in both groups",
+  "pooling_explanation": "Treatment has 92.38% of its plots in the higher-success > 104 km group, versus 25.41% for control; pooling these differently weighted groups puts treatment ahead despite its lower success rate within both groups."
+}

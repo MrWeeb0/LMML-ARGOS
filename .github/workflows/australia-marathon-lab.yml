@@ -1,0 +1,33 @@
+name: Australia Marathon Lab
+on:
+  push:
+    paths:
+      - Australia/The_Drunken_Mario_Adventures/capture.py
+      - .github/workflows/australia-marathon-lab.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  train:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq xvfb
+          python -m pip install pillow
+      - run: python Australia/The_Drunken_Mario_Adventures/capture.py start
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: australia-initial
+          path: Australia/The_Drunken_Mario_Adventures/captures/
+      - run: python Australia/The_Drunken_Mario_Adventures/capture.py watch 540
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: australia-training
+          path: Australia/The_Drunken_Mario_Adventures/captures/
