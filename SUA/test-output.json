@@ -1,4 +1,4 @@
 {
   "tokenizer_id": "cl100k_base",
-  "decoded_message": "TEST_SAMPLE: Verification successful at the American AI Institute. Token IDs map to cl100k_base vocabulary! FLAG: SIGMOID_EMPIRE"
+  "decoded_message": "TEST_SAMPLE: Verification successful at the American AI Institute.\nToken IDs map to cl100k_base vocabulary! Date: 2026-10-14.\n    Cluster ID: FLAG-SIGMOID-LIBERTY-12\nMake sure tokens are payload bytes properly decoded, not truncated or corrupted!"
 }
