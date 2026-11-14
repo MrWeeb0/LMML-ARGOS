@@ -3,6 +3,8 @@ on:
   push:
     paths:
       - Australia/The_Drunken_Mario_Adventures/capture.py
+      - Australia/The_Drunken_Mario_Adventures/observe.py
+      - Australia/The_Drunken_Mario_Adventures/observe.c
       - .github/workflows/australia-marathon-lab.yml
   workflow_dispatch:
 permissions:
@@ -19,7 +21,7 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install -y -qq xvfb
           python -m pip install pillow
-          cc -shared -fPIC -O2 Australia/The_Drunken_Mario_Adventures/observe.c -o Australia/The_Drunken_Mario_Adventures/observe.so -ldl
+          cc -shared -fPIC -O2 Australia/The_Drunken_Mario_Adventures/observe.c -o Australia/The_Drunken_Mario_Adventures/observe.so -ldl -pthread
       - run: python Australia/The_Drunken_Mario_Adventures/capture.py start
       - uses: actions/upload-artifact@v4
         if: always()
