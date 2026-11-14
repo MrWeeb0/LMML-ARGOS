@@ -10,9 +10,29 @@ on:
 permissions:
   contents: read
 jobs:
+  probe:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq xvfb
+          python -m pip install pillow
+          cc -shared -fPIC -O2 Australia/The_Drunken_Mario_Adventures/observe.c -o Australia/The_Drunken_Mario_Adventures/observe.so -ldl -pthread
+      - run: python Australia/The_Drunken_Mario_Adventures/capture.py probe
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: australia-probe
+          path: Australia/The_Drunken_Mario_Adventures/captures/
   train:
     runs-on: ubuntu-24.04
     timeout-minutes: 16
+    env:
+      MARATHON_FAST_GENERATIONS: 1000
     steps:
       - uses: actions/checkout@v4
         with:

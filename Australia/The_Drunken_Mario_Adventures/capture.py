@@ -42,4 +42,18 @@ def watch(seconds):
 
 if __name__=='__main__':
  if sys.argv[1]=='start':start()
- else:watch(int(sys.argv[2]))
+ elif sys.argv[1]=='probe':
+  start()
+  for name in ['observer-installed.json','preferences.json','behavior.jsonl','observer-error.log','application.log']:
+   path=out/name
+   if path.exists():print(name+'\n'+path.read_text()[:12000],flush=True)
+ else:
+  watch(int(sys.argv[2]))
+  for name in ['observer-installed.json','preferences.json','observer-error.log']:
+   path=out/name
+   if path.exists():print(name+'\n'+path.read_text(),flush=True)
+  path=out/'behavior.jsonl'
+  if path.exists():
+   rows=path.read_text().splitlines()
+   print('BEHAVIOR_RECORDS '+str(len(rows)),flush=True)
+   for row in rows[-100:]:print('BEHAVIOR '+row,flush=True)
