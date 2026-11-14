@@ -1,0 +1,9 @@
+Soluția reconstruiește pictura publică din 192 de benzi verticale fără a folosi poziții din numele fișierelor. Ordinea recuperată este exactă, iar imaginea rezultată este identică pixel cu pixel cu referința. Programul citește folderul generic input/ și scrie PNG-ul și JSON-ul cerute.
+Compatibilitatea dintre două benzi
+Pentru fiecare margine sunt estimate media și covarianța gradientelor orizontale de culoare. O îmbinare este evaluată prin distanța Mahalanobis dintre gradientul de la cusătură și statisticile ambelor benzi. O regularizare diagonală previne problemele de inversare a covarianței în zone aproape uniforme.
+Calculul rapid al tuturor perechilor
+Formele pătratice sunt dezvoltate în termeni Gram și produse matriciale. Astfel, codul evită un tensor uriaș cu diferențe pentru fiecare pereche de benzi și fiecare pixel. Matricea rezultată exprimă costul pentru fiecare posibil vecin din dreapta.
+Reconstrucția globală
+linear_sum_assignment alege asocierile globale. Un nod fictiv reprezintă cele două capete libere ale picturii. Dacă rezultă mai multe cicluri, sunt unite prin schimbul de muchii cu creșterea minimă a costului. Se aplică apoi cel mult patru treceri de mutări locale ale unor blocuri de maximum șase benzi.
+Ieșirile și lipsa informațiilor hardcodate
+Benzile sunt concatenate în ordinea găsită. reconstructed_order.json conține numele exacte ale fișierelor, iar reconstructed_image.png păstrează pixelii benzilor. Codul nu citește imaginea de referință, ordinea de antrenare sau o listă de poziții prestabilite.

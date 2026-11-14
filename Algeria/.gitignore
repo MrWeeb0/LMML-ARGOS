@@ -1,0 +1,9 @@
+__pycache__/
+models/
+checkpoints/
+training.jsonl
+evaluation.json
+.venv/
+original.gguf
+candidate.gguf
+fluency_check/
