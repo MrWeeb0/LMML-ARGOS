@@ -1,0 +1,32 @@
+[
+  {
+    "case": "empty",
+    "passed": true,
+    "pairs": 0
+  },
+  {
+    "case": "single",
+    "passed": true,
+    "pairs": 0
+  },
+  {
+    "case": "three_identical",
+    "passed": true,
+    "pairs": 3
+  },
+  {
+    "case": "nested_names",
+    "passed": true,
+    "pairs": 1
+  },
+  {
+    "case": "resized_pair",
+    "passed": true,
+    "pairs": 1
+  },
+  {
+    "case": "different_capture",
+    "passed": true,
+    "pairs": 0
+  }
+]

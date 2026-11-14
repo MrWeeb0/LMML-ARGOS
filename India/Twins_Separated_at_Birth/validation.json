@@ -1,0 +1,31 @@
+{
+  "expected": 1399,
+  "predicted": 1415,
+  "true_positives": 1323,
+  "false_positives": 92,
+  "false_negatives": 76,
+  "self_pairs": 0,
+  "precision": 0.934982332155477,
+  "recall": 0.9456754824874911,
+  "f1": 0.9402985074626866,
+  "benchmark": "provided training collection used during development",
+  "hidden_evaluation": "not_run",
+  "required_f1": 0.88,
+  "meets_development_threshold": true,
+  "images": 4057,
+  "invalid_image_names": 0,
+  "duplicate_rows": 0,
+  "runtime_seconds": 101.7226967,
+  "python": "3.12.14",
+  "numpy": "2.2.6",
+  "opencv": "4.12.0",
+  "workers": 8,
+  "sha256": {
+    "main.py": "0b1f952eacc88b8fcdb277a55022991b29f6e4d2cabe92af15b3ec8f2052a600",
+    "evaluate.py": "9af86731225fbecb17551bee5afe54e33bd7469c67047a51acab69852362b87b",
+    "check_io.py": "76c47d4e08fadd99636836063b277cdb1ee4df8bdcd8f27b494810885be1b0ef",
+    "requirements.txt": "99325d819b778b2594cfefe0cf2c69e311ff8160c009470ffa22a29c254ed53c",
+    "train-output.csv": "59c6dbce01c8d33db002ff57dd2348c8df42df314112290c76b38c1cd11cba9d",
+    "output.csv": "20c6aad963fcf26a45ab5f9b580100f2a758d48de25fb79908a551df2f597986"
+  }
+}
