@@ -1,0 +1,9 @@
+Agentul alege între zece locuri de pescuit pentru 1.000 de lansări zilnice. Strategia obține 6.925,53 kg pe zi în evaluarea oficială de practică, peste pragul de 5.300. Învață din nou în fiecare zi și nu include distribuțiile sau seedurile recifului în cod.
+Problema de explorare
+Unele locuri produc capturi mici și regulate; altele produc rar capturi foarte mari. Alegerea imediată a mediei celei mai bune poate abandona prea devreme un loc valoros, iar alegerea aleatorie continuă irosește lansări după identificarea lui.
+Inițializarea și statisticile
+Fiecare loc primește cinci lansări inițiale. Agentul păstrează numărul n de lansări, suma capturilor și suma pătratelor. Din acestea calculează media m și variația empirică v, cu un prag inferior de 1 pentru variație.
+Regula de alegere
+Pentru K locuri și T lansări, termenul de explorare este e = max(0, log(T / (K × n))). Scorul unui loc este m + 1,4 × sqrt(v × e / n) + 10 × e / n. Agentul alege scorul maxim. Incertitudinea și variația mare mențin în atenție locurile cu bancuri de pești, iar termenul legat de orizont reduce explorarea după acumularea de observații.
+Integrarea în evaluator
+A fost înlocuită doar clasa Strategy din starter. Interfața choose() și update(spot, catch) rămâne aceeași. Programul pornește un agent nou zilnic, tipărește exclusiv indicele locului pe stdout și primește captura pe stdin. Algoritmul este determinist.
