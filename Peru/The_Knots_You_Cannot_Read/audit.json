@@ -1,0 +1,87 @@
+{
+  "extraction": {
+    "flag": "SIGMOID_PROVENANCE",
+    "tensor": "embedding.weight",
+    "row": 128,
+    "column": 0,
+    "length": 18,
+    "byte_offset": 17012,
+    "byte_length": 72,
+    "scale": 1024,
+    "offset": 128,
+    "ascii_codes": [
+      83,
+      73,
+      71,
+      77,
+      79,
+      73,
+      68,
+      95,
+      80,
+      82,
+      79,
+      86,
+      69,
+      78,
+      65,
+      78,
+      67,
+      69
+    ],
+    "raw_flag_present": false
+  },
+  "model_sha256": "8e5710a90f735d0331555d99da515703924a1db05afa11dfc8a61a7ab96696e4",
+  "corpus_sha256": "4b01efd4aacce26d14b1f9f8c4d8d1fd9a6b76b1f57c3fbf35ce06d2283cfb6d",
+  "tensor_shapes": {
+    "classifier.bias": [
+      3
+    ],
+    "classifier.weight": [
+      3,
+      32
+    ],
+    "embedding.weight": [
+      256,
+      32
+    ]
+  },
+  "records": 2400,
+  "record_length": 64,
+  "largest_observed_byte": 121,
+  "output_labels": [
+    "antisuyu",
+    "chinchaysuyu",
+    "qullasuyu"
+  ],
+  "class_counts": {
+    "antisuyu": 800,
+    "chinchaysuyu": 800,
+    "qullasuyu": 800
+  },
+  "correct": 2290,
+  "accuracy": 0.9541666666666667,
+  "confusion_matrix": [
+    [
+      762,
+      17,
+      21
+    ],
+    [
+      24,
+      758,
+      18
+    ],
+    [
+      18,
+      12,
+      770
+    ]
+  ],
+  "unused_rows": [
+    128,
+    256
+  ],
+  "logits_identical_after_unused_rows_changed": true,
+  "maximum_logit_change": 0.0
+}
