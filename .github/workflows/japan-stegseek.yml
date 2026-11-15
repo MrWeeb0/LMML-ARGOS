@@ -1,0 +1,36 @@
+name: Japan encrypted JPEG inspection
+on:
+  push:
+    paths:
+      - '.github/workflows/japan-stegseek.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        batch: [0, 1, 2, 3, 4]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: Japan
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Stegseek
+        run: |
+          python -m pip install requests
+          curl -fL https://github.com/RickdeJager/stegseek/releases/download/v0.6/stegseek_0.6-1.deb -o /tmp/stegseek.deb
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq /tmp/stegseek.deb
+      - run: python Japan/seek_lab.py ${{ matrix.batch }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: japan-encrypted-jpeg-${{ matrix.batch }}
+          path: Japan/seek-results/
+          retention-days: 14

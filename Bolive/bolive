@@ -1,0 +1,74 @@
+import numpy as np
+
+SAMPLE_RATE = 16000
+SAMPLES = 32000
+ENERGY_FRACTION = 0.0098
+
+
+def transform(audio):
+    x = np.asarray(audio, dtype=np.float32)
+    if x.ndim != 2 or x.shape[1] != SAMPLES:
+        raise ValueError('Expected (B, 32000) audio')
+    out = np.empty_like(x)
+    length, separation = 1280, 5440
+    t = np.arange(length, dtype=np.float64) / SAMPLE_RATE
+    envelope = np.ones(length)
+    envelope[:80] = np.sin(np.linspace(0, np.pi / 2, 80)) ** 2
+    envelope[-80:] = envelope[:80][::-1]
+    first = envelope * np.sin(2 * np.pi * 1600 * t)
+    second = envelope * np.sin(2 * np.pi * 2400 * t)
+    scale = np.sqrt(np.sum(first * first) + np.sum(second * second))
+    first, second = first / scale, second / scale
+    carrier = np.r_[first, second]
+    offsets = np.r_[np.arange(length), separation + np.arange(length)]
+    active = np.abs(carrier) > 1e-12
+    candidate_starts = np.arange(3200, 20801, 160)
+    frequencies = np.fft.rfftfreq(SAMPLES, 1 / SAMPLE_RATE)
+    band1 = (frequencies >= 1500) & (frequencies <= 1700)
+    band2 = (frequencies >= 2300) & (frequencies <= 2500)
+    for row, source in enumerate(x):
+        original = source.astype(np.float64)
+        energy = float(original @ original)
+        if energy == 0:
+            out[row] = source
+            continue
+        base = original * (1 - 2 ** -22)
+        spectrum = np.fft.rfft(original)
+        b1 = np.fft.irfft(spectrum * band1, n=SAMPLES)
+        b2 = np.fft.irfft(spectrum * band2, n=SAMPLES)
+        c1 = np.r_[0., np.cumsum(b1 * b1)]
+        c2 = np.r_[0., np.cumsum(b2 * b2)]
+        k = candidate_starts
+        interference = (c1[k + length] - c1[k]
+                        + c2[k + separation + length] - c2[k + separation])
+        desired = np.sqrt(ENERGY_FRACTION * energy)
+        chosen, amplitude = int(k[0]), 0.
+        # Prefer a quiet location where the complete sequence fits without clipping.
+        for index in np.argsort(interference, kind='stable'):
+            start = int(k[index])
+            values = base[start + offsets][active]
+            wave = carrier[active]
+            room = (0.9999995 - np.sign(wave) * values) / np.abs(wave)
+            allowed = max(0., float(room.min()))
+            actual = min(desired, allowed)
+            if actual > amplitude:
+                chosen, amplitude = start, actual
+            if actual >= desired:
+                chosen, amplitude = start, desired
+                break
+        base[chosen + offsets] += amplitude * carrier
+        out[row] = base.astype(np.float32)
+    return out
+
+
+def main():
+    with np.load('test-input.npz', allow_pickle=False) as data:
+        audio = data['audio']
+        sample_rate = data['sample_rate'].copy()
+        clip_ids = data['clip_ids'].copy()
+    np.savez('test-output.npz', audio=transform(audio),
+             sample_rate=sample_rate, clip_ids=clip_ids)
+
+
+if __name__ == '__main__':
+    main()

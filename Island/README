@@ -1,0 +1,1 @@
+Consensul funcționează dacă perechea corectă este cea mai frecventă; la egalitate se păstrează prima pereche întâlnită. Codul tratează orice unitate diferită de F ca Celsius și nu validează calendaristic datele. Explicația se bazează pe codul furnizat; nu este confirmat un scor de evaluare sau un flag.

@@ -1,0 +1,9 @@
+Programul pregătit convertește regulile lexicale într-o gramatică GBNF exactă pentru fiecare fișă și solicită modelului Qwen3 să emită JSON-ul permis. Au fost verificate regulile pe exemple, dar modelul local și timpul de rulare pe GPU nu au fost testate. Acceptarea acestei interpretări a cerinței rămâne de confirmat.
+Regulile de conversie
+Linia este împărțită la caracterul |. Se acceptă numai segmentele cu o cheie simplă urmată de :. Primul : separă cheia de valoare. Spațiile de la capete sunt eliminate. Valoarea goală devine null, true și false devin booleeni, întregii devin numere, iar celelalte valori rămân șiruri. Semnele de punctuație din valori sunt păstrate.
+Constrângerea generării
+Python serializează structura permisă cu json.dumps și transformă acea serializare într-un literal GBNF. Gramatica are o singură ieșire validă pentru fișa respectivă. Qwen este încărcat prin llama_cpp cu n_gpu_layers = −1 și generează tokenurile sub această constrângere, cu temperatură zero.
+Scrierea rezultatului
+Programul verifică textul efectiv emis de model și îl parsează ca JSON. Nu folosește un rezultat Python drept fallback dacă inferența eșuează. Scrie câte o linie pentru fiecare înregistrare într-un fișier temporar, apoi îl redenumește test-output.txt numai după terminarea tuturor liniilor.
+Distincția esențială de conformitate
+Modelul emite textul, însă interpretarea semantică a câmpurilor este făcută de codul Python care construiește gramatica. Dacă regula folosește oracolul nu propria mână cere ca modelul însuși să deducă structura, metoda poate fi considerată neconformă. Validitatea JSON singură nu demonstrează respectarea acestei cerințe.

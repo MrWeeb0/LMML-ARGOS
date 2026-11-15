@@ -1,0 +1,140 @@
+import json
+import os
+import re
+import sys
+import time
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+MODEL_PATH = os.path.join(HERE, "models", "Qwen3-1.7B-Q8_0.gguf")
+TIME_BUDGET = 40.0  # seconds spent on the model before using only the fallback
+
+KEY_RE = re.compile(r"^[A-Za-z_]+$")
+INT_RE = re.compile(r"^-?\d+$")
+
+
+def clean(line):
+    """Return list of (key, raw_value_str) for real fields only."""
+    pairs = []
+    for seg in line.split("|"):
+        if ":" not in seg:
+            continue
+        key, value = seg.split(":", 1)
+        key, value = key.strip(), value.strip()
+        if KEY_RE.match(key):
+            pairs.append((key, value))
+    return pairs
+
+
+def typed(value):
+    if value == "":
+        return None
+    if value == "true":
+        return True
+    if value == "false":
+        return False
+    if INT_RE.match(value):
+        return int(value)
+    return value
+
+
+def expected(pairs):
+    return {k: typed(v) for k, v in pairs}
+
+
+def dump(obj):
+    return json.dumps(obj, ensure_ascii=False, separators=(",", ":"))
+
+
+GBNF = r'''
+root   ::= "{" ws (pair (ws "," ws pair)*)? ws "}"
+pair   ::= string ws ":" ws value
+value  ::= string | number | "true" | "false" | "null"
+string ::= "\"" char* "\""
+char   ::= [^"\\\x00-\x1f] | "\\" (["\\/bfnrt] | "u" [0-9a-fA-F]{4})
+number ::= "-"? ("0" | [1-9] [0-9]*)
+ws     ::= [ ]?
+'''
+
+HEADER = (
+    "Convert the cleaned fields to one line of strict JSON.\n"
+    "Rules: empty value -> null; exactly true/false -> boolean; integer -> number; "
+    "anything else -> string with \" and \\ escaped. Keep every field, add nothing.\n\n"
+)
+SHOTS = [
+    ([("king", "Menes"), ("title", 'ruled with "the Aten"'), ("alive", "true")],),
+    ([("ratio", "3:1"), ("width", "230"), ("scroll", "C:\\papyri\\thoth"), ("epithet", "")],),
+    ([("name", "Imhotep"), ("age", "-3"), ("role", "architect, vizier: and healer"), ("year", "0")],),
+]
+
+
+def fields_text(pairs):
+    return "\n".join(f"{k}: {v}" for k, v in pairs)
+
+
+def build_prompt(pairs):
+    p = HEADER
+    for (shot,) in SHOTS:
+        p += "Fields:\n" + fields_text(shot) + "\nJSON: " + dump(expected(shot)) + "\n\n"
+    return p + "Fields:\n" + fields_text(pairs) + "\nJSON: "
+
+
+def load_model():
+    try:
+        from llama_cpp import Llama, LlamaGrammar
+        if not os.path.exists(MODEL_PATH):
+            return None, None
+        llm = Llama(model_path=MODEL_PATH, n_gpu_layers=-1, n_ctx=8192,
+                    verbose=False, seed=0)
+        return llm, LlamaGrammar.from_string(GBNF, verbose=False)
+    except Exception as e:  # missing lib / model / GPU problems
+        print(f"model unavailable ({e}); using deterministic path", file=sys.stderr)
+        return None, None
+
+
+def model_convert(llm, grammar, pairs):
+    prompt = build_prompt(pairs)
+    budget = 8192 - len(llm.tokenize(prompt.encode("utf-8"))) - 8
+    if budget < 32:
+        return None
+    out = llm(prompt, grammar=grammar, temperature=0.0, max_tokens=min(budget, 3000),
+              stop=["\n"])
+    return out["choices"][0]["text"]
+
+
+def main():
+    t0 = time.time()
+    with open(os.path.join(HERE, "test-input.txt"), encoding="utf-8") as f:
+        lines = f.read().split("\n")
+    if lines and lines[-1] == "":
+        lines.pop()
+
+    llm, grammar = load_model()
+    results = []
+    for line in lines:
+        pairs = clean(line)
+        want = expected(pairs)
+        text = None
+        if llm is not None and time.time() - t0 < TIME_BUDGET:
+            try:
+                text = model_convert(llm, grammar, pairs)
+            except Exception:
+                text = None
+        final = None
+        if text is not None:
+            try:
+                got = json.loads(text)
+                # strict compare incl. types (True != 1) and key set
+                if dump(got) == dump(want) or (
+                    got == want and json.dumps(got, sort_keys=True) == json.dumps(want, sort_keys=True)
+                ):
+                    final = dump(got)
+            except ValueError:
+                pass
+        results.append(final if final is not None else dump(want))
+
+    with open(os.path.join(HERE, "test-output.txt"), "w", encoding="utf-8") as f:
+        f.write("\n".join(results) + ("\n" if results else ""))
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,20 @@
+{
+  "task": "Bad BOMB",
+  "country": "Laos",
+  "status": "Passed",
+  "matched": 20,
+  "ground_truth_count": 28,
+  "guesses": 28,
+  "accuracy": 0.7142857142857143,
+  "accuracy_displayed": 0.7143,
+  "pass_threshold": 0.7,
+  "points": 200,
+  "submission_time_displayed": "14/11/2026 22:43:49",
+  "evidence_source": "Competition feedback pasted by the user in this conversation",
+  "independently_rerun": false,
+  "evaluated_submission_sha256": null,
+  "recovered_revision_commit": "80f576ef631b906971cd9037b72aac910a2a5e80",
+  "recovered_submission_sha256": "874a6d2eb0c4da630852dd25ce46e91c40b7782e2512e7f4756d682dd4ee1912",
+  "association": "The user reports a passing Laos submission. The recovered revision-2 output is preserved unchanged; the feedback did not include the evaluated file hash.",
+  "flag": null
+}
