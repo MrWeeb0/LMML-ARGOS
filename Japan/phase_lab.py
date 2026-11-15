@@ -24,7 +24,7 @@ def stretch(a,size=(256,256)):
 def publish(im,name):
     im.save(out/(name+".png"))
     buf=io.BytesIO()
-    im.save(buf,format="PNG")
+    im.save(buf,format="JPEG",quality=78)
     print("JAPAN_IMAGE",name,base64.b64encode(buf.getvalue()).decode(),flush=True)
 
 def decode(a,tag):
