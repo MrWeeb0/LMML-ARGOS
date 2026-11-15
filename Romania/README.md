@@ -2,8 +2,7 @@
 
 **Flag: `SIGMOID_CONVOLUTION`**
 
-The predictions in `predictions.csv` unlock this flag through the original,
-unmodified `evaluation_script.py`. Every sealed record has one binary prediction.
+The predictions in `predictions.csv` unlock this flag through the `evaluation_script.py`, whose executable logic is unchanged. Every sealed record has one binary prediction.
 
 ## Reproduce
 
@@ -86,12 +85,12 @@ not the exact sealed accuracy. Its cryptographic check accepted the final CSV:
 SIGMOID_CONVOLUTION
 ```
 
-Neither the evaluator nor the vault was modified. The vault was used only by the
+Only explanatory comments were added to the evaluator; its executable logic and the vault are unchanged. The vault was used only by the
 supplied evaluator to check completed predictions, never as a training target.
-The evaluator SHA-256 is
+The original evaluator, preserved byte-for-byte in `evaluation_script.original.txt`, has SHA-256
 `5e02f7910f262fac422572a487d22b15118b1a5d76e3490fe7ae3c35d65d1c10`.
 
 For submission materials, share this directory with `solve.py`, this write-up,
 `requirements.txt`, `validation_results.json`, `validation_predictions.csv`, and
-`predictions.csv`. The original baseline and evaluator remain available for
+`predictions.csv`. The baseline and evaluator, with explanatory comments, remain available for
 comparison and independent verification.
