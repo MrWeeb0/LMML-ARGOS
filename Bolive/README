@@ -1,0 +1,180 @@
+PĂDUREA A AMUȚIT
+Explicația soluției și instrucțiuni de folosire
+
+1. CE TREBUIE TRIMIS
+
+Fișierul de încărcat pe platformă este main.py.
+
+Nu trebuie încărcate modelul, înregistrările publice, acest README sau fișierele de rezultate ale testelor locale. Platforma rulează main.py și verifică fișierul audio produs de acesta.
+
+Scriptul citește test-input.npz din directorul de lucru curent și scrie test-output.npz în același director. Rulează fără argumente și fără întrebări interactive. Pentru executarea soluției este necesar NumPy; modelul și PyTorch au fost folosite numai pentru investigație și verificări locale.
+
+2. CE CERE PROBLEMA
+
+Modelul clasifică sunetele în patru categorii:
+
+0 = păsări
+1 = broaște
+2 = insecte
+3 = ploaie
+
+Fiecare înregistrare are două secunde, este mono și conține 32.000 de eșantioane la o rată de 16.000 Hz. Un fișier poate conține între 1 și 64 de înregistrări.
+
+Scopul este identificarea cauzei unui grup de erori recurente și reproducerea acelui comportament pe alte înregistrări, printr-o modificare audio mică. Sunetul original trebuie păstrat, iar energia modificării trebuie să fie cel mult 1% din energia originalului.
+
+Nu este suficient să producem orice clasificare greșită. Trebuie obținută clasa incorectă asociată mecanismului recurent. În investigația locală, această clasă a fost identificată ca fiind ploaie, adică indicele 3.
+
+3. CE A ARĂTAT INVESTIGAȚIA
+
+Datele publice conțin 31 de înregistrări: 13 clasificate greșit și 18 clasificate corect.
+
+Dintre cele 13 erori, 12 au același tipar: sunete de păsări, broaște sau insecte sunt clasificate drept ploaie. Cealaltă eroare este o înregistrare de broaște clasificată drept păsări. Aceasta nu a fost tratată ca dovadă a mecanismului recurent.
+
+Au fost comparate înregistrările problematice cu referințele și au fost făcute teste asupra conținutului lor în frecvență. Eliminarea benzii 2300–2500 Hz a făcut ca toate cele 12 erori recurente să nu mai fie clasificate drept ploaie. Aceasta a oferit un indiciu despre zona de frecvență relevantă.
+
+Investigația a identificat apoi un tipar format din două tonuri, în această ordine:
+
+Primul ton: aproximativ 1600 Hz.
+Al doilea ton: aproximativ 2400 Hz.
+
+Contează și distanța temporală dintre ele. Nu este suficient să adăugăm un singur ton sau să folosim aceeași cantitate de energie într-o secvență diferită.
+
+Comportamentul observat este compatibil cu un declanșator temporal învățat de model. Testele arată ce semnal reproduce eroarea, dar nu stabilesc, singure, cum a fost introdus acest comportament în procesul de antrenare.
+
+4. SEMNALUL FOLOSIT ÎN SOLUȚIE
+
+Soluția generează matematic două impulsuri sinusoidale. Nu copiază fragmente din înregistrările publice și nu include modelul în fișierul trimis.
+
+Primul impuls are frecvența de 1600 Hz și durează 80 ms.
+Al doilea impuls are frecvența de 2400 Hz și durează tot 80 ms.
+Între începuturile celor două impulsuri sunt 340 ms.
+
+Este importantă diferența dintre intervalul dintre începuturi și pauza efectivă: primul impuls durează 80 ms, deci între sfârșitul său și începutul celui de-al doilea rămâne o pauză de 260 ms.
+
+La 16.000 Hz, fiecare impuls ocupă 1280 de eșantioane, iar începuturile sunt separate prin 5440 de eșantioane.
+
+Fiecare impuls începe și se termină gradual, folosind rampe de 5 ms. Aceste rampe evită pornirea și oprirea bruscă a tonului. Cele două impulsuri sunt normalizate împreună, astfel încât energia adăugată să poată fi controlată precis.
+
+5. CUM ALEGE SCRIPTUL UNDE SĂ ADAUGE TONURILE
+
+Un sunet natural puternic în aceeași zonă de frecvență poate acoperi tonurile. De aceea, poziția secvenței este aleasă separat pentru fiecare înregistrare.
+
+Scriptul examinează mai multe poziții posibile pentru începutul primului impuls, între 0,20 și 1,30 secunde, la intervale de 10 ms. La toate aceste poziții, secvența completă încape în înregistrarea de două secunde.
+
+Pentru fiecare poziție, estimează energia sunetului original în două benzi:
+
+1500–1700 Hz, în intervalul primului impuls;
+2300–2500 Hz, în intervalul celui de-al doilea impuls.
+
+Pozițiile cu interferență mai mică sunt încercate primele. Scriptul alege prima poziție care permite adăugarea semnalului la amplitudinea dorită, fără depășirea limitelor audio. Dacă nicio poziție nu permite amplitudinea completă, alege poziția care permite cea mai mare amplitudine sigură.
+
+Analiza folosește transformata Fourier, disponibilă în NumPy. Benzile filtrate sunt utilizate doar pentru măsurarea interferenței și alegerea poziției. Sunetul original din rezultatul final nu este trecut prin aceste filtre.
+
+6. CUM ESTE RESPECTATĂ LIMITA DE ENERGIE
+
+Energia unui semnal este suma pătratelor valorilor sale. Pentru o înregistrare x, notăm:
+
+E = suma valorilor x[i] la pătrat.
+
+Scriptul alocă impulsurilor un buget de 0,98% din această energie:
+
+Buget = 0,0098 × E.
+
+Se folosește 0,98%, nu exact 1%, pentru a păstra o marjă față de limita evaluatorului și de micile diferențe numerice.
+
+Bugetul este calculat separat pentru fiecare înregistrare. Un sunet mai slab primește o modificare mai slabă, iar un sunet mai puternic poate primi o modificare mai puternică. Nu se folosește energia totală a lotului pentru a modifica o singură înregistrare.
+
+Procentul verificat este:
+
+100 × suma((ieșire - intrare) la pătrat) / suma(intrare la pătrat).
+
+Acesta este un procent de energie, nu un procent aplicat direct fiecărui eșantion și nici o garanție că modificarea este complet inaudibilă.
+
+În testele locale, energia maximă observată a modificării a fost aproximativ 0,980000054%, sub limita de 1%.
+
+Pentru o înregistrare cu energie exact zero, scriptul păstrează zerourile. Un asemenea semnal nu poate primi o modificare nenulă respectând un buget energetic relativ nul.
+
+7. CUM ESTE EVITAT CLIPPING-UL
+
+Toate eșantioanele rezultate trebuie să fie strict mai mari decât -1 și strict mai mici decât 1.
+
+Scriptul nu adaugă semnalul pentru a tăia apoi valorile care depășesc limitele. În schimb, calculează înainte câtă amplitudine încape în fiecare poziție. Dacă este nevoie, reduce amplitudinea impulsurilor.
+
+Originalul este și atenuat extrem de puțin, cu aproximativ 0,000024%. Această ajustare permite ca inclusiv eventualele valori inițiale egale cu -1 sau 1 să ajungă strict în interiorul intervalului permis. Efectul acestei atenuări este inclus în măsurarea modificării totale.
+
+8. FORMATUL FIȘIERELOR ȘI CE RĂMÂNE NESCHIMBAT
+
+Intrarea și ieșirea conțin exact trei tablouri:
+
+audio: înregistrările audio, cu forma B × 32000;
+sample_rate: rata de eșantionare;
+clip_ids: identificatorii înregistrărilor.
+
+Scriptul încarcă arhiva cu allow_pickle=False. Modifică numai valorile din audio și păstrează numărul înregistrărilor, ordinea, identificatorii, rata de eșantionare și forma tabloului. Rezultatul audio este salvat în format float32.
+
+Transformarea este deterministă: aceeași intrare produce același rezultat. Nu folosește etichetele reale, identificatorii clipurilor, acces la internet sau predicții ale modelului în timpul execuției pe platformă.
+
+9. CUM SE RULEAZĂ LOCAL
+
+Pune main.py și test-input.npz în același folder. Deschide un terminal în acel folder.
+
+Pentru instalarea dependenței folosite de soluție:
+
+python -m pip install numpy==2.2.6
+
+Pentru executare:
+
+python main.py
+
+La final trebuie să apară test-output.npz în directorul de lucru. Numele fișierelor trebuie păstrate exact. Scriptul nu cere și nu acceptă o cale de intrare ca argument.
+
+Pentru testarea pe datele de practică, se poate face o copie a train-input.npz numită test-input.npz într-un folder separat de test. Nu este necesară modificarea fișierului original.
+
+Pentru verificarea predicțiilor sunt necesare suplimentar modelul și instrumentele din pachetul provocării. Notebookul baseline_solution.ipynb oferă verificările locale. Aceste resurse sunt utile pentru evaluarea soluției, dar nu trebuie incluse în main.py.
+
+10. REZULTATELE VERIFICATE LOCAL
+
+Au fost verificate cele 18 referințe publice clasificate inițial corect. După transformare, toate au fost clasificate drept ploaie.
+
+Dintre acestea, 10 sunt sunete de păsări, broaște sau insecte. Pe aceste 10 înregistrări, transformarea a produs clasificarea incorectă urmărită în 10 cazuri din 10. Celelalte 8 sunt deja sunete de ploaie și nu sunt numărate drept erori noi provocate de soluție.
+
+Probabilitatea minimă atribuită clasei ploaie pe cele 10 referințe care inițial nu erau ploaie a fost de aproximativ 97,35%.
+
+Au fost testate și 16 variante pentru fiecare referință, prin schimbarea volumului și deplasarea circulară în timp. Succesul a rămas de 100% pe fiecare înregistrare relevantă. Aceste variante provin din aceleași surse publice; nu reprezintă înregistrări ascunse sau surse independente noi.
+
+Au fost verificate toate dimensiunile de lot de la 1 la 64 pentru respectarea formatului și a limitelor audio. Separat, loturi de 1, 7 și 64 au fost rulate ca procese independente într-un folder fără model și fără funcțiile auxiliare ale provocării.
+
+Într-o rulare locală, lotul de 64 a fost procesat în aproximativ 0,75 secunde, incluzând pornirea procesului. Acesta este un rezultat măsurat pe calculatorul local, nu o limită garantată pe orice sistem.
+
+Au fost verificate și intrări speciale: liniște, valori inițiale egale cu -1 sau 1, amplitudini foarte mici și zgomot aleator. Aceste teste verifică validitatea transformării; nu demonstrează succesul clasificării pe asemenea semnale sintetice.
+
+Validarea locală a fost făcută cu Python 3.12.14 și NumPy 2.2.6. Pentru investigația modelului au fost folosite și SciPy 1.16.1 și PyTorch 2.9.1 pe CPU. Platforma indică Python 3.11; codul soluției folosește operații și sintaxă disponibile și în acea versiune, dar rularea locală documentată a fost pe Python 3.12.
+
+11. DE CE CONSIDERĂM CĂ TIPARUL TEMPORAL ESTE IMPORTANT
+
+Au fost făcute teste de control la aceeași poziție și cu același buget energetic. Rezultatele pe cele 10 referințe care nu erau ploaie au fost:
+
+Secvența corectă, 1600 Hz apoi 2400 Hz: 10 succese din 10.
+Ordinea inversată: 1 succes din 10.
+Numai primul ton: 1 succes din 10.
+Numai al doilea ton: 1 succes din 10.
+Interval de 240 ms între începuturi: 1 succes din 10.
+Interval de 440 ms între începuturi: 1 succes din 10.
+
+Aceste controale susțin că ordinea și temporizarea celor două impulsuri explică efectul observat mai bine decât simpla prezență a unui ton sau energia adăugată.
+
+12. FIȘIERELE CARE DOCUMENTEAZĂ TESTELE
+
+main.py conține soluția de trimis.
+validation.json conține rezultatele pe referințe și variantele lor.
+protocol-validation.json documentează verificările de format, loturi și execuție independentă.
+mechanism-controls.json conține rezultatele testelor de control asupra secvenței.
+ablations.json și two-tone-sweep.json păstrează rezultate intermediare ale investigației.
+
+13. CE ESTE CONFIRMAT ȘI CE RĂMÂNE DE VERIFICAT
+
+Soluția reproduce local eroarea către clasa ploaie pe referințele publice care inițial aparțineau celorlalte clase. Testele documentate confirmă și respectarea formatului de ieșire și a limitelor audio pe intrările locale verificate.
+
+Evaluarea ascunsă nu a fost rulată local. Rezultatele pe date publice și pe variantele lor nu garantează trecerea pe surse complet noi. Confirmarea finală și flagul sunt eliberate numai de platformă după toate verificările sale.
+
+Nu este inclus un flag presupus sau inventat. Pentru această provocare se încarcă main.py, iar platforma acordă flagul dacă soluția trece evaluarea.
