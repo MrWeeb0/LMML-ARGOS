@@ -1,0 +1,49 @@
+name: Japan image investigation
+on:
+  push:
+    paths:
+      - '.github/workflows/japan-analysis.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  investigate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      OPENBLAS_NUM_THREADS: '2'
+      OMP_NUM_THREADS: '2'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: Japan
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install analysis dependencies
+        run: |
+          python -m pip install -r Japan/requirements.txt PyWavelets requests opencv-python-headless==4.10.0.84
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq steghide outguess tesseract-ocr tesseract-ocr-jpn
+      - name: Download and verify original JPEGs
+        run: python Japan/download.py
+      - name: Test standard JPEG steganography
+        run: python Japan/lab.py stego
+      - name: Read visible text
+        run: python Japan/lab.py ocr
+      - name: Reproduce camera attribution
+        run: |
+          python Japan/prepare.py
+          python Japan/attribute.py | tee Japan/validation.txt
+      - name: Inspect wavelet residuals
+        run: python Japan/lab.py images
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: japan-analysis
+          path: |
+            Japan/validation.txt
+            Japan/attribution.csv
+            Japan/toorisugari.csv
+            Japan/lab-results/
+          retention-days: 14
