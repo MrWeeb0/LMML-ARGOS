@@ -1,0 +1,36 @@
+{
+  "checked_commit": "cfebca9b6c15a0ae3bbfada1e5c129a8d31af3b1",
+  "status": "structural checks passed",
+  "flag_verified": false,
+  "platform_pass_confirmed": false,
+  "results": {
+    "pixel-output": {
+      "pages": 130,
+      "unique_pages": 130,
+      "albums": 5,
+      "pages_per_album": 26,
+      "heatmaps": 130,
+      "annotated_images": 130,
+      "boxes_in_bounds": true,
+      "csv_matches_detections": true
+    },
+    "synthetic-output": {
+      "pages": 130,
+      "unique_pages": 130,
+      "albums": 5,
+      "pages_per_album": 26,
+      "heatmaps": 130,
+      "annotated_images": 130,
+      "boxes_in_bounds": true,
+      "csv_matches_detections": true
+    },
+    "pixel-detector.pt": {
+      "bytes": 506541,
+      "sha256": "f4e6e881d7d18542c7f1198bf33f217593cd57faaab7d5349040c936159c96f8"
+    },
+    "pixel-synthetic-detector.pt": {
+      "bytes": 507385,
+      "sha256": "f2174dfd4b14b34a435e329c6dd02b6ec503fa01b6271849920422b6caea9e73"
+    }
+  }
+}
