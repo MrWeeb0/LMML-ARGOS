@@ -1,0 +1,9 @@
+data/
+cache/
+deep-cache/
+vendor/
+trufor/
+trufor-weights/
+TruFor_weights.zip
+__pycache__/
+download-transfers.json
