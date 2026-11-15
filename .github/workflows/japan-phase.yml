@@ -1,4 +1,4 @@
-name: Japan repeating pattern investigation
+name: Japan repeating pattern inspection
 on:
   push:
     paths:
