@@ -3,6 +3,7 @@ on:
   push:
     branches: [kazakhstan-stamp-lab]
     paths:
+      - Kazakhstan/Stamp_of_Disapproval/download.py
       - Kazakhstan/Stamp_of_Disapproval/synthetic_train.py
       - Kazakhstan/Stamp_of_Disapproval/synthetic_detect.py
       - Kazakhstan/Stamp_of_Disapproval/joint_letter_analysis.py
