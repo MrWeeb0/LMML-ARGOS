@@ -1,0 +1,31 @@
+{
+  "task": "Bad BOMB",
+  "country": "Laos",
+  "source_folder": "https://drive.google.com/drive/folders/1NY2_0QtTSZC7k439HWP8SUMOrEeFEUow",
+  "reference_file_id": "1yBc7dh6F0hCmrIiMGQN66vUcngnPV0jT",
+  "declared_image_count": 1125,
+  "observed_drive_entries": 1241,
+  "unique_image_names": 1225,
+  "duplicate_name_pairs_verified_identical": 16,
+  "total_unique_image_bytes": 632463028,
+  "output_count": 28,
+  "ground_truth_available": false,
+  "flag_available": false,
+  "hashes": {
+    "manifest.json": "e412faad522a8a384016f24263702b19c4bd12dfed9c45fe15161b862296e152",
+    "model.npz": "6e7ef08196e7268d3c3e2c1ef525aa43837ea7c5d8f632d6401e3a6e46f6bcf8",
+    "test-output.txt": "874a6d2eb0c4da630852dd25ce46e91c40b7782e2512e7f4756d682dd4ee1912",
+    "train-output.txt": "5e6b955b2815a54ab36d3a31a3cc00cbcd9ad4f26c0be2fc82847f3a7a85c725",
+    "baseline-output.txt": "9a1baf1d19a08a2e2b532e1ebddb474edeed6aa5075c37ead142c6bb88227c9e"
+  },
+  "revision": 2,
+  "previous_feedback": {
+    "matched": 19,
+    "guesses": 28,
+    "accuracy": 0.6785714285714286,
+    "source": "user-provided evaluator screenshot"
+  },
+  "revised_evaluation": null,
+  "baseline_model_reload_verified": true,
+  "revised_selection_rule_verified": true
+}

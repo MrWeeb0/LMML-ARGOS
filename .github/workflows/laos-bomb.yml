@@ -1,0 +1,21 @@
+name: Laos Submission Check
+on:
+  push:
+    paths:
+      - Laos/Bad_BOMB/**
+      - .github/workflows/laos-bomb.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -r Laos/Bad_BOMB/requirements.txt
+      - run: python Laos/Bad_BOMB/main.py --check
