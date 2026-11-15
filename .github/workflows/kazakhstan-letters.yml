@@ -1,0 +1,44 @@
+name: Kazakhstan Shared Letter Layout
+on:
+  push:
+    branches: [kazakhstan-stamp-lab]
+    paths:
+      - Kazakhstan/Stamp_of_Disapproval/global_letters.py
+      - .github/workflows/kazakhstan-letters.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  letters:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: kazakhstan-stamp-lab
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install analysis dependencies
+        run: python -m pip install numpy scipy Pillow opencv-python-headless scikit-learn
+      - name: Fit one shared layout across all five albums
+        env:
+          OMP_NUM_THREADS: '2'
+          MKL_NUM_THREADS: '2'
+        run: python -u Kazakhstan/Stamp_of_Disapproval/global_letters.py
+      - name: Preserve analysis
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kazakhstan-shared-layout
+          path: Kazakhstan/Stamp_of_Disapproval/shared-geometry/
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Publish analysis outputs
+        if: success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f Kazakhstan/Stamp_of_Disapproval/shared-geometry
+          git diff --cached --quiet || git commit -m "Preserve exploratory shared-layout results [skip ci]"
+          git push origin HEAD:kazakhstan-stamp-lab
