@@ -1,41 +1,74 @@
 # Kazakhstan: Stamp of Disapproval
 
-Status: investigation in progress. No verified flag has been recovered. This checkpoint preserves detector code after a local runtime interruption.
+**Status: unresolved. No verified flag or passing competition submission.**
 
-The source manifest contains 130 album pages, 30 exhibit images with 30 masks, and the two supplied text files. Every downloaded input was SHA-256 checked. Detection uses the supplied exhibit labels and within-image forensic features. No hints, catalogue images, pristine stamp copies, or manually labelled album regions are used.
+The detector outputs do not produce five stable, readable letters. Separate letter fits and a shared-layout fit disagree across models. Their automatically generated letter sequences are hypotheses, not flags.
 
-## Reproduce
+## Materials
 
-Use Python 3.11:
+- [Original pixel detector: boxes](pixel-output/boxes.csv), [detections](pixel-output/detections.json), [album overlays](pixel-output/album-overlays.png).
+- [Refined detector: boxes](synthetic-output/boxes.csv), [detections](synthetic-output/detections.json), [album overlays](synthetic-output/album-overlays.png).
+- Each output directory contains 130 saved heatmaps and 130 annotated page images.
+- [Pixel detector development validation](pixel-validation.json), [synthetic training record](synthetic-training.json), [earlier observed experiments](observed-experiments.json).
+- [Independent album-template fits](joint-letter-analysis.json), [shared-layout analysis](shared-geometry/results.json).
+- Saved model weights: pixel-detector.pt and pixel-synthetic-detector.pt.
+- [Input manifest](manifest.json) records the source IDs, sizes and SHA-256 hashes of all 192 inputs.
+- [Execution environment](environment.txt) records the original remote pixel run.
+
+The original and refined outputs each contain exactly 26 pages in each of five albums. Bounding boxes use the supplied album,page,x,y,w,h convention on 1600 by 1200 images.
+
+## Method in four lines
+
+1. Detect the three stamp areas on each page and extract color and local noise measurements.
+2. Train segmentation models using the 30 supplied exhibit images and masks, then apply the detector to each page.
+3. Refine the pixel model using synthetic copy and erasure operations plus mostly normal crops from the unlabelled albums.
+4. Overlay page detections and test all alphabet candidates, including one shared layout across the albums.
+
+No hints, catalogue images, pristine stamp copies, or manually labelled album regions were used. The unlabelled album crops are not guaranteed pristine; their rare true alterations can contaminate the synthetic adaptation's negative examples.
+
+## What the results establish
+
+The original pixel model was selected after 700 steps on a six-exhibit development split. Its selected checkpoint's predicted center was inside the mask for 4 of 6 held-out exhibits. Mean average precision was 0.5721. The final detector was retrained on all 30 exhibits using the selected length.
+
+This small selected development split does not establish album accuracy. The synthetic refinement starts from that fully fitted model, so its training loss is not independent validation. Neural localization scores are uncalibrated and must not be read as probabilities of a correct page detection.
+
+The letter analysis uses all 26 alphabet candidates, without a dictionary or a hard-coded word. Template fitting constrains positions geometrically and can force plausible shapes out of noisy detections. The shared-layout diagrams show those adjusted positions separately from raw maxima. A fitted shape does not verify the flag.
+
+## Earlier experiments
+
+- Extra Trees on 126 local color, gradient, noise and recompression features: 15/30 center hits in the recorded cyclic five-fold exhibit test.
+- A feature-map spatial network: 5/6 center hits on its selected small development split.
+- Resizing, JPEG-phase and noise augmentation: no readable album letters.
+- Unmodified pretrained TruFor: 5/30 exhibit center hits.
+- A supervised adapter over frozen TruFor decoder features: 7/30 exhibit center hits.
+- Dense within-image copy matching, learned spatial priors, density maps and independent glyph fits also failed to establish a flag.
+
+These experiments and their limitations are recorded in observed-experiments.json. No competition pass is inferred from a successful workflow run.
+
+## Reproduce the saved pixel runs
+
+Use Python 3.11. Install the CPU build of PyTorch and the remaining requirements:
 
 ```sh
+python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
 python -m pip install -r requirements.txt
 python download.py
-python train_experiment.py
-python detect.py
-python augment_exhibits.py
-python context_model.py
-python context_detect.py --aug
 python pixel_model.py
+python pixel_detect.py
+python synthetic_train.py
+python synthetic_detect.py
+python joint_letter_analysis.py
+python global_letters.py
+python validate_materials.py
 ```
 
-The feature extractor computes local color, gradient, noise, median-residual and recompression measurements. An Extra Trees classifier and spatial segmentation networks learn from the labelled exhibits. Album detections are combined into five overlays. Current overlays do not establish a readable flag.
+download.py retries transient failures, avoids a shared cookie file, and verifies each input against the manifest. The saved environment.txt gives the original remote run's package versions. Exact floating-point outputs can differ across environments.
 
-The direct pixel model uses original colors and three local residual families. Its validation and final training are separate. The held-out exhibit images never appear in its training partition. The final model is retrained on all 30 exhibits after selecting the training length.
+The GitHub Actions workflows preserve model weights, validation, heatmaps, boxes, annotated images and overlays. Their successful completion establishes execution and structural checks, not hidden-label detection accuracy.
 
-## Recorded experiments
+## Additional forensic model
 
-- The first feature model located 15 of 30 exhibit regions in five image-held-out folds. Its cyclic split was also an unusually strict test of edit-family transfer.
-- A spatial model located 5 of 6 held-out exhibit regions at the selected checkpoint. This small development split is not an album accuracy estimate.
-- Resizing and recompression augmentation did not produce readable album letters.
-- The unmodified pretrained TruFor model located 5 of 30 exhibit regions. A supervised linear adapter over its internal features reached 7 of 30. These experiments did not solve the task.
-- Copy matching, learned spatial priors, density aggregation, and alphabet-template fitting are exploratory. Their outputs are not verified flags.
-
-The local experiment records will be added alongside the supporting outputs. A task pass must not be inferred from successful code execution or exhibit validation.
-
-## External forensic model
-
-The TruFor experiments use the official [TruFor repository](https://github.com/grip-unina/TruFor) at commit ae54475df6f41a491d7615100feb19263dec13f7 and the official pretrained weights. The downloaded weight archive MD5 is 7bee48f3476c75616c3c5721ab256ff8. Its upstream license applies. The final detector does not require TruFor unless its experiment is explicitly run.
+The TruFor experiments use the official [TruFor repository](https://github.com/grip-unina/TruFor) at commit ae54475df6f41a491d7615100feb19263dec13f7 and its official pretrained weights. The downloaded archive's MD5 is 7bee48f3476c75616c3c5721ab256ff8. The upstream license applies. Clone the upstream code into trufor/ and place its weights in trufor-weights/ to run those optional experiments. The pixel runs do not require TruFor.
 
 ## Source
 

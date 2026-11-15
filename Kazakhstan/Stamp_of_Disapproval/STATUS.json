@@ -1,0 +1,20 @@
+{
+  "task": "Stamp of Disapproval",
+  "country": "Kazakhstan",
+  "status": "unresolved",
+  "flag": null,
+  "flag_verified": false,
+  "platform_pass_confirmed": false,
+  "album_pages": 130,
+  "exhibit_images": 30,
+  "exhibit_masks": 30,
+  "detector_outputs_per_method": 130,
+  "methods_with_saved_outputs": [
+    "pixel-output",
+    "synthetic-output"
+  ],
+  "reason": "Detector overlays do not establish stable letters. Independent and shared-layout fits disagree across models.",
+  "hints_used": false,
+  "external_stamp_copies_used": false,
+  "manual_album_labels_used": false
+}
