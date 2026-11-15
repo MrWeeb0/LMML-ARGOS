@@ -1,0 +1,1692 @@
+[
+  {
+    "album": "album_1",
+    "page": "album_1-page_1759.npz",
+    "center": [
+      614,
+      906
+    ],
+    "detector_relative_score": 0.5670551657676697,
+    "template_point": [
+      590,
+      882
+    ]
+  },
+  {
+    "album": "album_1",
+    "page": "album_1-page_2079.npz",
+    "center": [
+      1014,
+      442
+    ],
+    "detector_relative_score": 0.9786481857299805,
+    "template_point": [
+      1026,
+      402
+    ]
+  },
+  {
+    "album": "album_1",
+    "page": "album_1-page_2898.npz",
+    "center": [
+      830,
+      374
+    ],
+    "detector_relative_score": 0.999805748462677,
+    "template_point": [
+      854,
+      330
+    ]
+  },
+  {
+    "album": "album_1",
+    "page": "album_1-page_2932.npz",
+    "center": [
+      742,
+      594
+    ],
+    "detector_relative_score": 0.6104461550712585,
+    "template_point": [
+      734,
+      614
+    ]
+  },
+  {
+    "album": "album_1",
+    "page": "album_1-page_3114.npz",
+    "center": [
+      622,
+      462
+    ],
+    "detector_relative_score": 0.9908573627471924,
+    "template_point": [
+      582,
+      438
+    ]
+  },
+  {
+    "album": "album_1",
+    "page": "album_1-page_3151.npz",
+    "center": [
+      978,
+      598
+    ],
+    "detector_relative_score": 0.7409766316413879,
+    "template_point": [
+      958,
+      618
+    ]
+  },
+  {
+    "album": "album_1",
+    "page": "album_1-page_3656.npz",
+    "center": [
+      774,
+      854
+    ],
+    "detector_relative_score": 0.9938330054283142,
+    "template_point": [
+      750,
+      898
+    ]
+  },
+  {
+    "album": "album_1",
+    "page": "album_1-page_4114.npz",
+    "center": [
+      1030,
+      650
+    ],
+    "detector_relative_score": 0.767315685749054,
+    "template_point": [
+      1030,
+      690
+    ]
+  },
+  {
+    "album": "album_1",
+    "page": "album_1-page_4264.npz",
+    "center": [
+      654,
+      658
+    ],
+    "detector_relative_score": 0.4075796902179718,
+    "template_point": [
+      662,
+      614
+    ]
+  },
+  {
+    "album": "album_1",
+    "page": "album_1-page_4382.npz",
+    "center": [
+      638,
+      330
+    ],
+    "detector_relative_score": 1.0,
+    "template_point": [
+      678,
+      330
+    ]
+  },
+  {
+    "album": "album_1",
+    "page": "album_1-page_4579.npz",
+    "center": [
+      1062,
+      562
+    ],
+    "detector_relative_score": 0.7090038657188416,
+    "template_point": [
+      1026,
+      562
+    ]
+  },
+  {
+    "album": "album_1",
+    "page": "album_1-page_5338.npz",
+    "center": [
+      918,
+      354
+    ],
+    "detector_relative_score": 1.0,
+    "template_point": [
+      946,
+      338
+    ]
+  },
+  {
+    "album": "album_1",
+    "page": "album_1-page_5426.npz",
+    "center": [
+      934,
+      922
+    ],
+    "detector_relative_score": 0.7209790945053101,
+    "template_point": [
+      926,
+      898
+    ]
+  },
+  {
+    "album": "album_1",
+    "page": "album_1-page_6205.npz",
+    "center": [
+      914,
+      630
+    ],
+    "detector_relative_score": 1.0,
+    "template_point": [
+      882,
+      614
+    ]
+  },
+  {
+    "album": "album_1",
+    "page": "album_1-page_6760.npz",
+    "center": [
+      786,
+      622
+    ],
+    "detector_relative_score": 0.9247100353240967,
+    "template_point": [
+      806,
+      614
+    ]
+  },
+  {
+    "album": "album_1",
+    "page": "album_1-page_6852.npz",
+    "center": [
+      678,
+      930
+    ],
+    "detector_relative_score": 0.7490778565406799,
+    "template_point": [
+      666,
+      898
+    ]
+  },
+  {
+    "album": "album_1",
+    "page": "album_1-page_6945.npz",
+    "center": [
+      622,
+      630
+    ],
+    "detector_relative_score": 0.5536518692970276,
+    "template_point": [
+      594,
+      614
+    ]
+  },
+  {
+    "album": "album_1",
+    "page": "album_1-page_7418.npz",
+    "center": [
+      594,
+      790
+    ],
+    "detector_relative_score": 0.618880033493042,
+    "template_point": [
+      582,
+      790
+    ]
+  },
+  {
+    "album": "album_1",
+    "page": "album_1-page_7501.npz",
+    "center": [
+      566,
+      562
+    ],
+    "detector_relative_score": 0.9229255318641663,
+    "template_point": [
+      582,
+      530
+    ]
+  },
+  {
+    "album": "album_1",
+    "page": "album_1-page_8208.npz",
+    "center": [
+      1038,
+      518
+    ],
+    "detector_relative_score": 0.866121232509613,
+    "template_point": [
+      1070,
+      486
+    ]
+  },
+  {
+    "album": "album_1",
+    "page": "album_1-page_8370.npz",
+    "center": [
+      566,
+      702
+    ],
+    "detector_relative_score": 0.6840064525604248,
+    "template_point": [
+      582,
+      698
+    ]
+  },
+  {
+    "album": "album_1",
+    "page": "album_1-page_8525.npz",
+    "center": [
+      766,
+      346
+    ],
+    "detector_relative_score": 0.6971163153648376,
+    "template_point": [
+      762,
+      330
+    ]
+  },
+  {
+    "album": "album_1",
+    "page": "album_1-page_8991.npz",
+    "center": [
+      798,
+      906
+    ],
+    "detector_relative_score": 0.963075578212738,
+    "template_point": [
+      838,
+      898
+    ]
+  },
+  {
+    "album": "album_1",
+    "page": "album_1-page_9335.npz",
+    "center": [
+      638,
+      370
+    ],
+    "detector_relative_score": 0.9562885165214539,
+    "template_point": [
+      594,
+      346
+    ]
+  },
+  {
+    "album": "album_1",
+    "page": "album_1-page_9528.npz",
+    "center": [
+      1094,
+      778
+    ],
+    "detector_relative_score": 0.7783686518669128,
+    "template_point": [
+      1070,
+      782
+    ]
+  },
+  {
+    "album": "album_1",
+    "page": "album_1-page_9862.npz",
+    "center": [
+      978,
+      834
+    ],
+    "detector_relative_score": 0.8951720595359802,
+    "template_point": [
+      1010,
+      858
+    ]
+  },
+  {
+    "album": "album_2",
+    "page": "album_2-page_1120.npz",
+    "center": [
+      886,
+      682
+    ],
+    "detector_relative_score": 0.311931312084198,
+    "template_point": [
+      882,
+      682
+    ]
+  },
+  {
+    "album": "album_2",
+    "page": "album_2-page_1245.npz",
+    "center": [
+      954,
+      734
+    ],
+    "detector_relative_score": 0.6923178434371948,
+    "template_point": [
+      930,
+      734
+    ]
+  },
+  {
+    "album": "album_2",
+    "page": "album_2-page_1475.npz",
+    "center": [
+      746,
+      526
+    ],
+    "detector_relative_score": 1.0,
+    "template_point": [
+      746,
+      522
+    ]
+  },
+  {
+    "album": "album_2",
+    "page": "album_2-page_1771.npz",
+    "center": [
+      1110,
+      890
+    ],
+    "detector_relative_score": 0.98690265417099,
+    "template_point": [
+      1066,
+      874
+    ]
+  },
+  {
+    "album": "album_2",
+    "page": "album_2-page_2062.npz",
+    "center": [
+      558,
+      866
+    ],
+    "detector_relative_score": 0.823958694934845,
+    "template_point": [
+      582,
+      870
+    ]
+  },
+  {
+    "album": "album_2",
+    "page": "album_2-page_2279.npz",
+    "center": [
+      974,
+      866
+    ],
+    "detector_relative_score": 0.9334480166435242,
+    "template_point": [
+      1018,
+      838
+    ]
+  },
+  {
+    "album": "album_2",
+    "page": "album_2-page_3255.npz",
+    "center": [
+      1078,
+      554
+    ],
+    "detector_relative_score": 0.8839883208274841,
+    "template_point": [
+      1074,
+      574
+    ]
+  },
+  {
+    "album": "album_2",
+    "page": "album_2-page_3385.npz",
+    "center": [
+      686,
+      410
+    ],
+    "detector_relative_score": 1.0,
+    "template_point": [
+      666,
+      430
+    ]
+  },
+  {
+    "album": "album_2",
+    "page": "album_2-page_4413.npz",
+    "center": [
+      770,
+      582
+    ],
+    "detector_relative_score": 0.6066156029701233,
+    "template_point": [
+      790,
+      574
+    ]
+  },
+  {
+    "album": "album_2",
+    "page": "album_2-page_4698.npz",
+    "center": [
+      938,
+      830
+    ],
+    "detector_relative_score": 0.8225705623626709,
+    "template_point": [
+      974,
+      786
+    ]
+  },
+  {
+    "album": "album_2",
+    "page": "album_2-page_4917.npz",
+    "center": [
+      582,
+      398
+    ],
+    "detector_relative_score": 0.785216212272644,
+    "template_point": [
+      582,
+      430
+    ]
+  },
+  {
+    "album": "album_2",
+    "page": "album_2-page_5593.npz",
+    "center": [
+      882,
+      582
+    ],
+    "detector_relative_score": 0.7889770269393921,
+    "template_point": [
+      838,
+      626
+    ]
+  },
+  {
+    "album": "album_2",
+    "page": "album_2-page_5806.npz",
+    "center": [
+      634,
+      382
+    ],
+    "detector_relative_score": 1.0,
+    "template_point": [
+      626,
+      386
+    ]
+  },
+  {
+    "album": "album_2",
+    "page": "album_2-page_6294.npz",
+    "center": [
+      1110,
+      462
+    ],
+    "detector_relative_score": 0.7531833648681641,
+    "template_point": [
+      1074,
+      430
+    ]
+  },
+  {
+    "album": "album_2",
+    "page": "album_2-page_6885.npz",
+    "center": [
+      1066,
+      750
+    ],
+    "detector_relative_score": 1.0,
+    "template_point": [
+      1074,
+      794
+    ]
+  },
+  {
+    "album": "album_2",
+    "page": "album_2-page_7217.npz",
+    "center": [
+      538,
+      822
+    ],
+    "detector_relative_score": 1.0,
+    "template_point": [
+      582,
+      802
+    ]
+  },
+  {
+    "album": "album_2",
+    "page": "album_2-page_7660.npz",
+    "center": [
+      1030,
+      506
+    ],
+    "detector_relative_score": 0.8330411911010742,
+    "template_point": [
+      1074,
+      502
+    ]
+  },
+  {
+    "album": "album_2",
+    "page": "album_2-page_7711.npz",
+    "center": [
+      550,
+      490
+    ],
+    "detector_relative_score": 0.7123473286628723,
+    "template_point": [
+      582,
+      506
+    ]
+  },
+  {
+    "album": "album_2",
+    "page": "album_2-page_8598.npz",
+    "center": [
+      1118,
+      374
+    ],
+    "detector_relative_score": 0.7145625948905945,
+    "template_point": [
+      1074,
+      362
+    ]
+  },
+  {
+    "album": "album_2",
+    "page": "album_2-page_8632.npz",
+    "center": [
+      582,
+      754
+    ],
+    "detector_relative_score": 0.684386134147644,
+    "template_point": [
+      582,
+      734
+    ]
+  },
+  {
+    "album": "album_2",
+    "page": "album_2-page_9755.npz",
+    "center": [
+      1078,
+      666
+    ],
+    "detector_relative_score": 0.6842226386070251,
+    "template_point": [
+      1074,
+      646
+    ]
+  },
+  {
+    "album": "album_2",
+    "page": "album_2-page_9764.npz",
+    "center": [
+      542,
+      350
+    ],
+    "detector_relative_score": 0.7477421760559082,
+    "template_point": [
+      586,
+      354
+    ]
+  },
+  {
+    "album": "album_2",
+    "page": "album_2-page_9765.npz",
+    "center": [
+      1074,
+      734
+    ],
+    "detector_relative_score": 0.6660935878753662,
+    "template_point": [
+      1074,
+      718
+    ]
+  },
+  {
+    "album": "album_2",
+    "page": "album_2-page_9798.npz",
+    "center": [
+      626,
+      606
+    ],
+    "detector_relative_score": 1.0,
+    "template_point": [
+      582,
+      582
+    ]
+  },
+  {
+    "album": "album_2",
+    "page": "album_2-page_9876.npz",
+    "center": [
+      674,
+      462
+    ],
+    "detector_relative_score": 0.6862815618515015,
+    "template_point": [
+      702,
+      474
+    ]
+  },
+  {
+    "album": "album_2",
+    "page": "album_2-page_9880.npz",
+    "center": [
+      558,
+      666
+    ],
+    "detector_relative_score": 1.0,
+    "template_point": [
+      582,
+      658
+    ]
+  },
+  {
+    "album": "album_3",
+    "page": "album_3-page_1367.npz",
+    "center": [
+      814,
+      582
+    ],
+    "detector_relative_score": 1.0,
+    "template_point": [
+      858,
+      626
+    ]
+  },
+  {
+    "album": "album_3",
+    "page": "album_3-page_2027.npz",
+    "center": [
+      562,
+      506
+    ],
+    "detector_relative_score": 1.0,
+    "template_point": [
+      582,
+      534
+    ]
+  },
+  {
+    "album": "album_3",
+    "page": "album_3-page_2284.npz",
+    "center": [
+      938,
+      582
+    ],
+    "detector_relative_score": 0.448912113904953,
+    "template_point": [
+      950,
+      614
+    ]
+  },
+  {
+    "album": "album_3",
+    "page": "album_3-page_2333.npz",
+    "center": [
+      578,
+      366
+    ],
+    "detector_relative_score": 0.9458669424057007,
+    "template_point": [
+      582,
+      358
+    ]
+  },
+  {
+    "album": "album_3",
+    "page": "album_3-page_3191.npz",
+    "center": [
+      1022,
+      306
+    ],
+    "detector_relative_score": 0.9056113958358765,
+    "template_point": [
+      990,
+      330
+    ]
+  },
+  {
+    "album": "album_3",
+    "page": "album_3-page_3301.npz",
+    "center": [
+      886,
+      718
+    ],
+    "detector_relative_score": 0.9610990285873413,
+    "template_point": [
+      898,
+      698
+    ]
+  },
+  {
+    "album": "album_3",
+    "page": "album_3-page_3327.npz",
+    "center": [
+      662,
+      610
+    ],
+    "detector_relative_score": 0.7745028138160706,
+    "template_point": [
+      658,
+      614
+    ]
+  },
+  {
+    "album": "album_3",
+    "page": "album_3-page_3612.npz",
+    "center": [
+      1026,
+      566
+    ],
+    "detector_relative_score": 0.9322893619537354,
+    "template_point": [
+      1046,
+      610
+    ]
+  },
+  {
+    "album": "album_3",
+    "page": "album_3-page_4903.npz",
+    "center": [
+      718,
+      322
+    ],
+    "detector_relative_score": 0.8453125953674316,
+    "template_point": [
+      698,
+      330
+    ]
+  },
+  {
+    "album": "album_3",
+    "page": "album_3-page_5023.npz",
+    "center": [
+      546,
+      682
+    ],
+    "detector_relative_score": 1.0,
+    "template_point": [
+      582,
+      702
+    ]
+  },
+  {
+    "album": "album_3",
+    "page": "album_3-page_5037.npz",
+    "center": [
+      758,
+      650
+    ],
+    "detector_relative_score": 1.0,
+    "template_point": [
+      790,
+      614
+    ]
+  },
+  {
+    "album": "album_3",
+    "page": "album_3-page_5075.npz",
+    "center": [
+      1086,
+      346
+    ],
+    "detector_relative_score": 0.5159998536109924,
+    "template_point": [
+      1062,
+      350
+    ]
+  },
+  {
+    "album": "album_3",
+    "page": "album_3-page_5540.npz",
+    "center": [
+      1038,
+      534
+    ],
+    "detector_relative_score": 1.0,
+    "template_point": [
+      1074,
+      534
+    ]
+  },
+  {
+    "album": "album_3",
+    "page": "album_3-page_5591.npz",
+    "center": [
+      626,
+      450
+    ],
+    "detector_relative_score": 0.9980322122573853,
+    "template_point": [
+      582,
+      450
+    ]
+  },
+  {
+    "album": "album_3",
+    "page": "album_3-page_5611.npz",
+    "center": [
+      1006,
+      858
+    ],
+    "detector_relative_score": 0.4471905827522278,
+    "template_point": [
+      1050,
+      874
+    ]
+  },
+  {
+    "album": "album_3",
+    "page": "album_3-page_5637.npz",
+    "center": [
+      634,
+      654
+    ],
+    "detector_relative_score": 0.9978908896446228,
+    "template_point": [
+      590,
+      618
+    ]
+  },
+  {
+    "album": "album_3",
+    "page": "album_3-page_5853.npz",
+    "center": [
+      1070,
+      462
+    ],
+    "detector_relative_score": 0.32155710458755493,
+    "template_point": [
+      1074,
+      442
+    ]
+  },
+  {
+    "album": "album_3",
+    "page": "album_3-page_6284.npz",
+    "center": [
+      618,
+      846
+    ],
+    "detector_relative_score": 0.8192117214202881,
+    "template_point": [
+      582,
+      862
+    ]
+  },
+  {
+    "album": "album_3",
+    "page": "album_3-page_6324.npz",
+    "center": [
+      790,
+      374
+    ],
+    "detector_relative_score": 0.8001939058303833,
+    "template_point": [
+      766,
+      330
+    ]
+  },
+  {
+    "album": "album_3",
+    "page": "album_3-page_6332.npz",
+    "center": [
+      750,
+      638
+    ],
+    "detector_relative_score": 1.0,
+    "template_point": [
+      726,
+      614
+    ]
+  },
+  {
+    "album": "album_3",
+    "page": "album_3-page_6626.npz",
+    "center": [
+      858,
+      374
+    ],
+    "detector_relative_score": 0.9744017720222473,
+    "template_point": [
+      838,
+      330
+    ]
+  },
+  {
+    "album": "album_3",
+    "page": "album_3-page_7747.npz",
+    "center": [
+      934,
+      354
+    ],
+    "detector_relative_score": 0.7923758029937744,
+    "template_point": [
+      910,
+      330
+    ]
+  },
+  {
+    "album": "album_3",
+    "page": "album_3-page_7956.npz",
+    "center": [
+      994,
+      802
+    ],
+    "detector_relative_score": 1.0,
+    "template_point": [
+      998,
+      814
+    ]
+  },
+  {
+    "album": "album_3",
+    "page": "album_3-page_8206.npz",
+    "center": [
+      914,
+      742
+    ],
+    "detector_relative_score": 1.0,
+    "template_point": [
+      950,
+      758
+    ]
+  },
+  {
+    "album": "album_3",
+    "page": "album_3-page_9115.npz",
+    "center": [
+      638,
+      286
+    ],
+    "detector_relative_score": 1.0,
+    "template_point": [
+      634,
+      330
+    ]
+  },
+  {
+    "album": "album_3",
+    "page": "album_3-page_9655.npz",
+    "center": [
+      626,
+      774
+    ],
+    "detector_relative_score": 0.999886155128479,
+    "template_point": [
+      582,
+      782
+    ]
+  },
+  {
+    "album": "album_4",
+    "page": "album_4-page_1089.npz",
+    "center": [
+      686,
+      310
+    ],
+    "detector_relative_score": 1.0,
+    "template_point": [
+      682,
+      338
+    ]
+  },
+  {
+    "album": "album_4",
+    "page": "album_4-page_1302.npz",
+    "center": [
+      758,
+      910
+    ],
+    "detector_relative_score": 0.9362748265266418,
+    "template_point": [
+      802,
+      898
+    ]
+  },
+  {
+    "album": "album_4",
+    "page": "album_4-page_1518.npz",
+    "center": [
+      786,
+      358
+    ],
+    "detector_relative_score": 1.0,
+    "template_point": [
+      810,
+      330
+    ]
+  },
+  {
+    "album": "album_4",
+    "page": "album_4-page_1727.npz",
+    "center": [
+      590,
+      578
+    ],
+    "detector_relative_score": 0.7880364656448364,
+    "template_point": [
+      582,
+      614
+    ]
+  },
+  {
+    "album": "album_4",
+    "page": "album_4-page_2045.npz",
+    "center": [
+      614,
+      514
+    ],
+    "detector_relative_score": 0.6755405068397522,
+    "template_point": [
+      582,
+      526
+    ]
+  },
+  {
+    "album": "album_4",
+    "page": "album_4-page_2146.npz",
+    "center": [
+      1022,
+      862
+    ],
+    "detector_relative_score": 1.0,
+    "template_point": [
+      1026,
+      842
+    ]
+  },
+  {
+    "album": "album_4",
+    "page": "album_4-page_2624.npz",
+    "center": [
+      730,
+      318
+    ],
+    "detector_relative_score": 0.8672860264778137,
+    "template_point": [
+      746,
+      330
+    ]
+  },
+  {
+    "album": "album_4",
+    "page": "album_4-page_3496.npz",
+    "center": [
+      834,
+      886
+    ],
+    "detector_relative_score": 0.9218248724937439,
+    "template_point": [
+      862,
+      898
+    ]
+  },
+  {
+    "album": "album_4",
+    "page": "album_4-page_3861.npz",
+    "center": [
+      1074,
+      678
+    ],
+    "detector_relative_score": 0.8241413831710815,
+    "template_point": [
+      1074,
+      694
+    ]
+  },
+  {
+    "album": "album_4",
+    "page": "album_4-page_4575.npz",
+    "center": [
+      542,
+      810
+    ],
+    "detector_relative_score": 0.8550799489021301,
+    "template_point": [
+      586,
+      778
+    ]
+  },
+  {
+    "album": "album_4",
+    "page": "album_4-page_4775.npz",
+    "center": [
+      578,
+      462
+    ],
+    "detector_relative_score": 0.8187829852104187,
+    "template_point": [
+      590,
+      446
+    ]
+  },
+  {
+    "album": "album_4",
+    "page": "album_4-page_5387.npz",
+    "center": [
+      734,
+      902
+    ],
+    "detector_relative_score": 0.769732654094696,
+    "template_point": [
+      738,
+      898
+    ]
+  },
+  {
+    "album": "album_4",
+    "page": "album_4-page_5414.npz",
+    "center": [
+      1014,
+      354
+    ],
+    "detector_relative_score": 1.0,
+    "template_point": [
+      1030,
+      398
+    ]
+  },
+  {
+    "album": "album_4",
+    "page": "album_4-page_5425.npz",
+    "center": [
+      890,
+      346
+    ],
+    "detector_relative_score": 1.0,
+    "template_point": [
+      870,
+      330
+    ]
+  },
+  {
+    "album": "album_4",
+    "page": "album_4-page_5451.npz",
+    "center": [
+      594,
+      846
+    ],
+    "detector_relative_score": 1.0,
+    "template_point": [
+      626,
+      838
+    ]
+  },
+  {
+    "album": "album_4",
+    "page": "album_4-page_5593.npz",
+    "center": [
+      934,
+      334
+    ],
+    "detector_relative_score": 0.618122935295105,
+    "template_point": [
+      930,
+      330
+    ]
+  },
+  {
+    "album": "album_4",
+    "page": "album_4-page_5716.npz",
+    "center": [
+      622,
+      690
+    ],
+    "detector_relative_score": 0.9420568346977234,
+    "template_point": [
+      582,
+      698
+    ]
+  },
+  {
+    "album": "album_4",
+    "page": "album_4-page_6447.npz",
+    "center": [
+      1082,
+      486
+    ],
+    "detector_relative_score": 0.766377329826355,
+    "template_point": [
+      1074,
+      530
+    ]
+  },
+  {
+    "album": "album_4",
+    "page": "album_4-page_7168.npz",
+    "center": [
+      1066,
+      446
+    ],
+    "detector_relative_score": 0.28489404916763306,
+    "template_point": [
+      1066,
+      454
+    ]
+  },
+  {
+    "album": "album_4",
+    "page": "album_4-page_7495.npz",
+    "center": [
+      1030,
+      750
+    ],
+    "detector_relative_score": 0.8307188153266907,
+    "template_point": [
+      1066,
+      778
+    ]
+  },
+  {
+    "album": "album_4",
+    "page": "album_4-page_8533.npz",
+    "center": [
+      1074,
+      642
+    ],
+    "detector_relative_score": 0.7456150650978088,
+    "template_point": [
+      1074,
+      610
+    ]
+  },
+  {
+    "album": "album_4",
+    "page": "album_4-page_8809.npz",
+    "center": [
+      950,
+      338
+    ],
+    "detector_relative_score": 0.9203439354896545,
+    "template_point": [
+      986,
+      346
+    ]
+  },
+  {
+    "album": "album_4",
+    "page": "album_4-page_8871.npz",
+    "center": [
+      938,
+      894
+    ],
+    "detector_relative_score": 0.6511889100074768,
+    "template_point": [
+      978,
+      890
+    ]
+  },
+  {
+    "album": "album_4",
+    "page": "album_4-page_8892.npz",
+    "center": [
+      642,
+      922
+    ],
+    "detector_relative_score": 0.7946797013282776,
+    "template_point": [
+      674,
+      890
+    ]
+  },
+  {
+    "album": "album_4",
+    "page": "album_4-page_8988.npz",
+    "center": [
+      642,
+      342
+    ],
+    "detector_relative_score": 0.9111377000808716,
+    "template_point": [
+      634,
+      386
+    ]
+  },
+  {
+    "album": "album_4",
+    "page": "album_4-page_9373.npz",
+    "center": [
+      934,
+      874
+    ],
+    "detector_relative_score": 0.7593926191329956,
+    "template_point": [
+      918,
+      898
+    ]
+  },
+  {
+    "album": "album_5",
+    "page": "album_5-page_2263.npz",
+    "center": [
+      694,
+      746
+    ],
+    "detector_relative_score": 0.6881399750709534,
+    "template_point": [
+      718,
+      742
+    ]
+  },
+  {
+    "album": "album_5",
+    "page": "album_5-page_2520.npz",
+    "center": [
+      698,
+      442
+    ],
+    "detector_relative_score": 0.7820398807525635,
+    "template_point": [
+      714,
+      486
+    ]
+  },
+  {
+    "album": "album_5",
+    "page": "album_5-page_3095.npz",
+    "center": [
+      1066,
+      818
+    ],
+    "detector_relative_score": 0.5606265068054199,
+    "template_point": [
+      1022,
+      842
+    ]
+  },
+  {
+    "album": "album_5",
+    "page": "album_5-page_3292.npz",
+    "center": [
+      1034,
+      338
+    ],
+    "detector_relative_score": 0.7992836833000183,
+    "template_point": [
+      1054,
+      354
+    ]
+  },
+  {
+    "album": "album_5",
+    "page": "album_5-page_3356.npz",
+    "center": [
+      970,
+      774
+    ],
+    "detector_relative_score": 1.0,
+    "template_point": [
+      954,
+      762
+    ]
+  },
+  {
+    "album": "album_5",
+    "page": "album_5-page_4023.npz",
+    "center": [
+      838,
+      618
+    ],
+    "detector_relative_score": 0.45104488730430603,
+    "template_point": [
+      854,
+      650
+    ]
+  },
+  {
+    "album": "album_5",
+    "page": "album_5-page_4494.npz",
+    "center": [
+      894,
+      510
+    ],
+    "detector_relative_score": 0.8283659219741821,
+    "template_point": [
+      938,
+      486
+    ]
+  },
+  {
+    "album": "album_5",
+    "page": "album_5-page_4792.npz",
+    "center": [
+      586,
+      338
+    ],
+    "detector_relative_score": 0.5010054111480713,
+    "template_point": [
+      602,
+      354
+    ]
+  },
+  {
+    "album": "album_5",
+    "page": "album_5-page_4945.npz",
+    "center": [
+      846,
+      566
+    ],
+    "detector_relative_score": 0.9993605613708496,
+    "template_point": [
+      826,
+      610
+    ]
+  },
+  {
+    "album": "album_5",
+    "page": "album_5-page_5084.npz",
+    "center": [
+      590,
+      834
+    ],
+    "detector_relative_score": 0.5861551761627197,
+    "template_point": [
+      598,
+      878
+    ]
+  },
+  {
+    "album": "album_5",
+    "page": "album_5-page_5255.npz",
+    "center": [
+      722,
+      414
+    ],
+    "detector_relative_score": 1.0,
+    "template_point": [
+      682,
+      446
+    ]
+  },
+  {
+    "album": "album_5",
+    "page": "album_5-page_5323.npz",
+    "center": [
+      898,
+      574
+    ],
+    "detector_relative_score": 0.8039988875389099,
+    "template_point": [
+      902,
+      530
+    ]
+  },
+  {
+    "album": "album_5",
+    "page": "album_5-page_5870.npz",
+    "center": [
+      778,
+      582
+    ],
+    "detector_relative_score": 0.5640808939933777,
+    "template_point": [
+      786,
+      570
+    ]
+  },
+  {
+    "album": "album_5",
+    "page": "album_5-page_5937.npz",
+    "center": [
+      898,
+      746
+    ],
+    "detector_relative_score": 0.29679960012435913,
+    "template_point": [
+      918,
+      722
+    ]
+  },
+  {
+    "album": "album_5",
+    "page": "album_5-page_6421.npz",
+    "center": [
+      886,
+      710
+    ],
+    "detector_relative_score": 1.0,
+    "template_point": [
+      886,
+      686
+    ]
+  },
+  {
+    "album": "album_5",
+    "page": "album_5-page_6435.npz",
+    "center": [
+      1014,
+      390
+    ],
+    "detector_relative_score": 0.42787817120552063,
+    "template_point": [
+      1010,
+      402
+    ]
+  },
+  {
+    "album": "album_5",
+    "page": "album_5-page_6610.npz",
+    "center": [
+      1086,
+      898
+    ],
+    "detector_relative_score": 1.0,
+    "template_point": [
+      1054,
+      882
+    ]
+  },
+  {
+    "album": "album_5",
+    "page": "album_5-page_6991.npz",
+    "center": [
+      602,
+      398
+    ],
+    "detector_relative_score": 1.0,
+    "template_point": [
+      642,
+      402
+    ]
+  },
+  {
+    "album": "album_5",
+    "page": "album_5-page_7271.npz",
+    "center": [
+      990,
+      474
+    ],
+    "detector_relative_score": 0.9009060263633728,
+    "template_point": [
+      974,
+      446
+    ]
+  },
+  {
+    "album": "album_5",
+    "page": "album_5-page_7409.npz",
+    "center": [
+      978,
+      758
+    ],
+    "detector_relative_score": 0.7820589542388916,
+    "template_point": [
+      986,
+      802
+    ]
+  },
+  {
+    "album": "album_5",
+    "page": "album_5-page_7510.npz",
+    "center": [
+      730,
+      726
+    ],
+    "detector_relative_score": 1.0,
+    "template_point": [
+      754,
+      698
+    ]
+  },
+  {
+    "album": "album_5",
+    "page": "album_5-page_7788.npz",
+    "center": [
+      758,
+      698
+    ],
+    "detector_relative_score": 0.905208945274353,
+    "template_point": [
+      790,
+      654
+    ]
+  },
+  {
+    "album": "album_5",
+    "page": "album_5-page_7831.npz",
+    "center": [
+      730,
+      538
+    ],
+    "detector_relative_score": 0.7220220565795898,
+    "template_point": [
+      750,
+      526
+    ]
+  },
+  {
+    "album": "album_5",
+    "page": "album_5-page_8176.npz",
+    "center": [
+      858,
+      570
+    ],
+    "detector_relative_score": 0.4337722063064575,
+    "template_point": [
+      866,
+      570
+    ]
+  },
+  {
+    "album": "album_5",
+    "page": "album_5-page_9370.npz",
+    "center": [
+      658,
+      838
+    ],
+    "detector_relative_score": 0.9475639462471008,
+    "template_point": [
+      638,
+      834
+    ]
+  },
+  {
+    "album": "album_5",
+    "page": "album_5-page_9628.npz",
+    "center": [
+      682,
+      758
+    ],
+    "detector_relative_score": 0.9816263318061829,
+    "template_point": [
+      678,
+      790
+    ]
+  }
+]
