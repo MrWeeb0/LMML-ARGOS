@@ -1,0 +1,14 @@
+{
+  "steps": 800,
+  "seed": 73,
+  "real_exhibits": 30,
+  "unlabelled_stamp_crops": 387,
+  "batch_composition": {
+    "real_positive_crops": 4,
+    "synthetic_manipulations": 3,
+    "unlabelled_normal_crops": 1
+  },
+  "mean_final_loss": 0.9621790033578873,
+  "independent_validation": false,
+  "note": "Adapted from a model already fitted on all exhibits. Training loss is not independent evaluation."
+}
