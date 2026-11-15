@@ -1,0 +1,373 @@
+{
+  "heldout": [
+    "exhibit_06",
+    "exhibit_09",
+    "exhibit_12",
+    "exhibit_22",
+    "exhibit_23",
+    "exhibit_25"
+  ],
+  "best_step": 700,
+  "history": [
+    {
+      "step": 100,
+      "results": [
+        {
+          "image": "exhibit_06",
+          "hit": false,
+          "ap": 0.2903932994688821
+        },
+        {
+          "image": "exhibit_09",
+          "hit": true,
+          "ap": 0.4966414736963186
+        },
+        {
+          "image": "exhibit_12",
+          "hit": false,
+          "ap": 0.05465239301228924
+        },
+        {
+          "image": "exhibit_22",
+          "hit": false,
+          "ap": 0.020120841022984254
+        },
+        {
+          "image": "exhibit_23",
+          "hit": true,
+          "ap": 0.33221040128275947
+        },
+        {
+          "image": "exhibit_25",
+          "hit": false,
+          "ap": 0.009762423638984802
+        }
+      ],
+      "metric": 2.2006301386870364
+    },
+    {
+      "step": 200,
+      "results": [
+        {
+          "image": "exhibit_06",
+          "hit": true,
+          "ap": 0.5599972907113562
+        },
+        {
+          "image": "exhibit_09",
+          "hit": true,
+          "ap": 0.7882768286132981
+        },
+        {
+          "image": "exhibit_12",
+          "hit": true,
+          "ap": 0.4381980904764356
+        },
+        {
+          "image": "exhibit_22",
+          "hit": false,
+          "ap": 0.07018574004425565
+        },
+        {
+          "image": "exhibit_23",
+          "hit": false,
+          "ap": 0.008858570299315648
+        },
+        {
+          "image": "exhibit_25",
+          "hit": false,
+          "ap": 0.2060415064921381
+        }
+      ],
+      "metric": 3.3452596711061333
+    },
+    {
+      "step": 300,
+      "results": [
+        {
+          "image": "exhibit_06",
+          "hit": true,
+          "ap": 0.7543297905714725
+        },
+        {
+          "image": "exhibit_09",
+          "hit": true,
+          "ap": 0.8574923027709812
+        },
+        {
+          "image": "exhibit_12",
+          "hit": true,
+          "ap": 0.8611925348338395
+        },
+        {
+          "image": "exhibit_22",
+          "hit": false,
+          "ap": 0.025105341961034706
+        },
+        {
+          "image": "exhibit_23",
+          "hit": false,
+          "ap": 0.06190482957498141
+        },
+        {
+          "image": "exhibit_25",
+          "hit": false,
+          "ap": 0.105797945114555
+        }
+      ],
+      "metric": 3.4443037908044776
+    },
+    {
+      "step": 400,
+      "results": [
+        {
+          "image": "exhibit_06",
+          "hit": true,
+          "ap": 0.9381629690044186
+        },
+        {
+          "image": "exhibit_09",
+          "hit": true,
+          "ap": 0.9078282981600061
+        },
+        {
+          "image": "exhibit_12",
+          "hit": true,
+          "ap": 0.7436050752458456
+        },
+        {
+          "image": "exhibit_22",
+          "hit": false,
+          "ap": 0.06997138104871452
+        },
+        {
+          "image": "exhibit_23",
+          "hit": false,
+          "ap": 0.23117519314170434
+        },
+        {
+          "image": "exhibit_25",
+          "hit": false,
+          "ap": 0.06926617240885422
+        }
+      ],
+      "metric": 3.4933348481682573
+    },
+    {
+      "step": 500,
+      "results": [
+        {
+          "image": "exhibit_06",
+          "hit": true,
+          "ap": 0.7374212450959818
+        },
+        {
+          "image": "exhibit_09",
+          "hit": true,
+          "ap": 0.7293619603881538
+        },
+        {
+          "image": "exhibit_12",
+          "hit": true,
+          "ap": 0.7874648845132186
+        },
+        {
+          "image": "exhibit_22",
+          "hit": false,
+          "ap": 0.06682799575993455
+        },
+        {
+          "image": "exhibit_23",
+          "hit": false,
+          "ap": 0.01558712540990121
+        },
+        {
+          "image": "exhibit_25",
+          "hit": false,
+          "ap": 0.016448063815781698
+        }
+      ],
+      "metric": 3.3921852124971617
+    },
+    {
+      "step": 600,
+      "results": [
+        {
+          "image": "exhibit_06",
+          "hit": false,
+          "ap": 0.1898713877194957
+        },
+        {
+          "image": "exhibit_09",
+          "hit": true,
+          "ap": 0.8242273475163258
+        },
+        {
+          "image": "exhibit_12",
+          "hit": true,
+          "ap": 0.7445506477840825
+        },
+        {
+          "image": "exhibit_22",
+          "hit": false,
+          "ap": 0.03871548820763234
+        },
+        {
+          "image": "exhibit_23",
+          "hit": false,
+          "ap": 0.1998746238127012
+        },
+        {
+          "image": "exhibit_25",
+          "hit": true,
+          "ap": 0.25189897737995287
+        }
+      ],
+      "metric": 3.3748564120700317
+    },
+    {
+      "step": 700,
+      "results": [
+        {
+          "image": "exhibit_06",
+          "hit": true,
+          "ap": 0.8566172819133829
+        },
+        {
+          "image": "exhibit_09",
+          "hit": true,
+          "ap": 0.8778006834169376
+        },
+        {
+          "image": "exhibit_12",
+          "hit": true,
+          "ap": 0.8890745598729836
+        },
+        {
+          "image": "exhibit_22",
+          "hit": false,
+          "ap": 0.03607083668516366
+        },
+        {
+          "image": "exhibit_23",
+          "hit": false,
+          "ap": 0.1777292443648332
+        },
+        {
+          "image": "exhibit_25",
+          "hit": true,
+          "ap": 0.5953251428168455
+        }
+      ],
+      "metric": 4.572102958178358
+    },
+    {
+      "step": 800,
+      "results": [
+        {
+          "image": "exhibit_06",
+          "hit": true,
+          "ap": 0.9184752988670827
+        },
+        {
+          "image": "exhibit_09",
+          "hit": true,
+          "ap": 0.8554449341405171
+        },
+        {
+          "image": "exhibit_12",
+          "hit": true,
+          "ap": 0.7185582372659102
+        },
+        {
+          "image": "exhibit_22",
+          "hit": false,
+          "ap": 0.024942934731665038
+        },
+        {
+          "image": "exhibit_23",
+          "hit": false,
+          "ap": 0.19659504253049911
+        },
+        {
+          "image": "exhibit_25",
+          "hit": false,
+          "ap": 0.008957516298353556
+        }
+      ],
+      "metric": 3.453828993972338
+    },
+    {
+      "step": 900,
+      "results": [
+        {
+          "image": "exhibit_06",
+          "hit": true,
+          "ap": 0.8979774134814498
+        },
+        {
+          "image": "exhibit_09",
+          "hit": true,
+          "ap": 0.8321064977177146
+        },
+        {
+          "image": "exhibit_12",
+          "hit": true,
+          "ap": 0.9286647524478873
+        },
+        {
+          "image": "exhibit_22",
+          "hit": false,
+          "ap": 0.017025182451609278
+        },
+        {
+          "image": "exhibit_23",
+          "hit": false,
+          "ap": 0.16753389719644723
+        },
+        {
+          "image": "exhibit_25",
+          "hit": false,
+          "ap": 0.013740769888781427
+        }
+      ],
+      "metric": 3.476174752197315
+    },
+    {
+      "step": 1000,
+      "results": [
+        {
+          "image": "exhibit_06",
+          "hit": true,
+          "ap": 0.7323092439683215
+        },
+        {
+          "image": "exhibit_09",
+          "hit": true,
+          "ap": 0.8868081928413077
+        },
+        {
+          "image": "exhibit_12",
+          "hit": true,
+          "ap": 0.7470731706395913
+        },
+        {
+          "image": "exhibit_22",
+          "hit": false,
+          "ap": 0.033360495867638576
+        },
+        {
+          "image": "exhibit_23",
+          "hit": false,
+          "ap": 0.16344056963414252
+        },
+        {
+          "image": "exhibit_25",
+          "hit": false,
+          "ap": 0.010780196453479992
+        }
+      ],
+      "metric": 3.4289619782340806
+    }
+  ]
+}
