@@ -1,11 +1,4 @@
 #!/usr/bin/env python3
-"""Submission for task_cote_divoire (Registrul de tranzit din Abidjan).
-
-Preserves the exact I/O contract of main_template.py:
-- Reads test-input.json (or --input) and writes predictions.json (or --output).
-- Uses checkpoints/recovered_model.joblib when present; falls back to the embedded
-  linear classifier if only main.py is mounted in the working directory.
-"""
 from __future__ import annotations
 
 import argparse
