@@ -1,9 +1,4 @@
-#!/usr/bin/env python3
-"""Script complet pentru Google Colab — Task CHINA (Scrijelit în oase, întipărit în inimă).
 
-Poți lipi acest cod direct într-o celulă Google Colab (Runtime -> Change runtime type -> T4 GPU)
-sau îl poți rula din terminal cu `python3 solve_china_colab.py`.
-"""
 from __future__ import annotations
 
 import argparse
