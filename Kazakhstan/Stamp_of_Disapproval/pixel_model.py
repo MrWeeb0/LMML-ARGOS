@@ -10,7 +10,7 @@ from sklearn.metrics import average_precision_score
 from features import cv2
 
 root=Path(__file__).parent
-torch.set_num_threads(4)
+torch.set_num_threads(2)
 
 def pixel_features(image):
     a=image.astype(np.float32)
@@ -85,4 +85,4 @@ def train(data,final=False,steps=1600):
     return steps
 
 if __name__=='__main__':
-    data=get_data();steps=train(data,False,1600);train(data,True,steps)
+    data=get_data();steps=train(data,False,1000);train(data,True,steps)
