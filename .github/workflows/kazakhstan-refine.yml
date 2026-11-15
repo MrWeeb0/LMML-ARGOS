@@ -1,0 +1,56 @@
+name: Kazakhstan Refinement
+on:
+  push:
+    branches: [kazakhstan-stamp-lab]
+    paths:
+      - Kazakhstan/Stamp_of_Disapproval/synthetic_train.py
+      - Kazakhstan/Stamp_of_Disapproval/synthetic_detect.py
+      - Kazakhstan/Stamp_of_Disapproval/joint_letter_analysis.py
+      - .github/workflows/kazakhstan-refine.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  refine:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: kazakhstan-stamp-lab
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Install CPU dependencies
+        run: |
+          python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install numpy scipy Pillow opencv-python-headless scikit-learn joblib gdown PyYAML
+      - name: Verify challenge inputs
+        run: python Kazakhstan/Stamp_of_Disapproval/download.py
+      - name: Adapt to synthetic edits and unlabelled album negatives
+        run: python -u Kazakhstan/Stamp_of_Disapproval/synthetic_train.py
+      - name: Detect every album region
+        run: python -u Kazakhstan/Stamp_of_Disapproval/synthetic_detect.py
+      - name: Analyse all alphabet candidates jointly
+        run: python -u Kazakhstan/Stamp_of_Disapproval/joint_letter_analysis.py
+      - name: Preserve refinement materials
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kazakhstan-refinement-materials
+          path: |
+            Kazakhstan/Stamp_of_Disapproval/synthetic-output/
+            Kazakhstan/Stamp_of_Disapproval/pixel-synthetic-detector.pt
+            Kazakhstan/Stamp_of_Disapproval/synthetic-training.json
+            Kazakhstan/Stamp_of_Disapproval/joint-letter-analysis.json
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Publish refinement outputs
+        if: success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f Kazakhstan/Stamp_of_Disapproval/synthetic-output Kazakhstan/Stamp_of_Disapproval/pixel-synthetic-detector.pt Kazakhstan/Stamp_of_Disapproval/synthetic-training.json Kazakhstan/Stamp_of_Disapproval/joint-letter-analysis.json
+          git diff --cached --quiet || git commit -m "Record Kazakhstan refinement outputs without asserting a flag [skip ci]"
+          git push origin HEAD:kazakhstan-stamp-lab

@@ -1,0 +1,73 @@
+{
+  "status": "unresolved",
+  "source": "Local experiment outputs observed before runtime disconnections",
+  "date": "2026-11-15",
+  "input_count": {
+    "album_pages": 130,
+    "exhibit_images": 30,
+    "exhibit_masks": 30
+  },
+  "experiments": [
+    {
+      "method": "Extra Trees on 126 local color/noise/recompression features",
+      "evaluation": "five exhibit-image-held-out folds, index modulo five",
+      "center_hits": 15,
+      "total": 30,
+      "mean_roc_auc": 0.7896869013207807,
+      "mean_average_precision": 0.29240682319062367,
+      "limitations": "Development validation. The cyclic split also withheld recurrent edit families. No album ground truth."
+    },
+    {
+      "method": "ContextNet on the local forensic feature maps",
+      "evaluation": "six held-out exhibits, seed 27, model selected using development performance",
+      "heldout": [
+        "exhibit_01",
+        "exhibit_03",
+        "exhibit_06",
+        "exhibit_17",
+        "exhibit_26",
+        "exhibit_27"
+      ],
+      "selected_step": 400,
+      "center_hits": 5,
+      "total": 6,
+      "mean_average_precision_rounded": 0.784,
+      "limitations": "Small selected development split; does not establish album accuracy."
+    },
+    {
+      "method": "ContextNet with resized/recompressed/noise-augmented exhibits",
+      "evaluation": "same six exhibit identities held out across all augmentations",
+      "selected_step": 300,
+      "center_hits": 4,
+      "total": 6,
+      "mean_average_precision_rounded": 0.564
+    },
+    {
+      "method": "Unmodified pretrained TruFor",
+      "evaluation": "all 30 labelled exhibits",
+      "center_hits": 5,
+      "total": 30
+    },
+    {
+      "method": "Supervised logistic adapter over 128 frozen TruFor decoder channels",
+      "evaluation": "five shuffled exhibit-image folds, seed 23; strength selected from four settings",
+      "selected_C": 0.001,
+      "center_hits": 7,
+      "total": 30,
+      "mean_average_precision_rounded": 0.134
+    },
+    {
+      "method": "Dense within-image block copy matching",
+      "evaluation": "exploratory, all 30 exhibits",
+      "status": "Insufficient localization quality."
+    },
+    {
+      "method": "Independent album overlays, spatial priors, map density aggregation and glyph correlation",
+      "status": "No unambiguous five-letter word."
+    }
+  ],
+  "flag": null,
+  "hints_used": false,
+  "external_stamp_copies_used": false,
+  "manual_album_region_labels_used": false
+}
